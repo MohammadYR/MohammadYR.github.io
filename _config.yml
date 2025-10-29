@@ -1,1 +1,27 @@
- 
+ # Site settings
+title: "Mohammad Yousefi"
+description: "Backend Developer (Python / Django / DRF / Docker / Celery)"
+url: "https://MohammadYR.github.io"
+
+# Build settings
+theme: jekyll-theme-minimal
+markdown: kramdown
+
+# Social links
+github_username: MohammadYR
+email: m.yousefi.r79@gmail.com
+
+# SEO & appearance
+lang: fa
+plugins:
+  - jekyll-seo-tag
+
+# Optional favicon or logo (اگر خواستی اضافه کن)
+# logo: /assets/logo.png
+
+# Exclude folders that GitHub Pages shouldn’t process
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
