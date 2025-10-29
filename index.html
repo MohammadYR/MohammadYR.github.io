@@ -3,106 +3,158 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>رزومه محمد یوسفی | Mohammad Yousefi - Backend Developer</title>
-  <meta name="description" content="رزومه و پروژه‌های محمد یوسفی — توسعه‌دهنده بک‌اند با Python و Django">
-  <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg">
+  <title>Mohammad Yousefi — Backend Developer | رزومه</title>
+  <meta name="description" content="Mohammad Yousefi — Python/Django Backend Developer. CV, projects, and contact." />
+  <meta property="og:title" content="Mohammad Yousefi — Backend Developer" />
+  <meta property="og:description" content="Python/Django, DRF, Docker, Celery/Redis, Pytest, GitHub Actions." />
   <style>
-    body {
-      font-family: "Vazirmatn", "Segoe UI", sans-serif;
-      margin: 0; padding: 0;
-      background: #f9fafb;
-      color: #111;
-      direction: rtl;
-    }
-    header {
-      text-align: center;
-      padding: 50px 20px 20px;
-      background: linear-gradient(120deg, #0d1117, #161b22);
-      color: #fff;
-    }
-    h1 { margin: 0; font-size: 32px; }
-    h2 { color: #0366d6; font-size: 22px; border-right: 4px solid #0366d6; padding-right: 8px; }
-    main { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-    section { margin-bottom: 40px; }
-    .skills span {
-      background: #e5e7eb;
-      color: #111;
-      padding: 6px 12px;
-      border-radius: 999px;
-      margin: 4px;
-      display: inline-block;
-      font-size: 14px;
-    }
-    a { color: #0366d6; text-decoration: none; }
-    footer {
-      background: #0d1117;
-      color: #aaa;
-      text-align: center;
-      padding: 20px;
-      font-size: 13px;
-    }
-    .links a {
-      margin: 0 10px;
-      color: #58a6ff;
-    }
+    :root { --bg:#f9fafb; --ink:#111; --muted:#555; --brand:#0366d6; --panel:#fff; }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    header{background:linear-gradient(120deg,#0d1117,#161b22);color:#fff;padding:36px 16px}
+    .container{max-width:960px;margin:auto;padding:0 16px}
+    h1{margin:0 0 6px 0;font-size:28px}
+    h2{font-size:20px;margin:28px 0 12px 0;color:var(--brand);border-right:4px solid var(--brand);padding-right:8px}
+    [dir="ltr"] h2{border-right:none;border-left:4px solid var(--brand);padding-right:0;padding-left:8px}
+    .muted{color:#c9d1d9}
+    .card{background:var(--panel);border:1px solid #e5e7eb;border-radius:10px;padding:16px}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px}
+    @media(min-width:780px){.grid{grid-template-columns:1fr 1fr}}
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:#eef2f7;border:1px solid #e5e7eb;border-radius:999px;padding:6px 12px;font-size:13px}
+    a{color:var(--brand);text-decoration:none}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .btn{border:1px solid #384151;color:#fff;background:#0d1117;border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer}
+    .btn:focus{outline:2px solid #58a6ff;outline-offset:2px}
+    footer{padding:18px;text-align:center;color:#666}
+    /* Language visibility */
+    .lang-fa{display:block}
+    .lang-en{display:none}
+    html[lang="en"] .lang-fa{display:none}
+    html[lang="en"] .lang-en{display:block}
   </style>
 </head>
 <body>
 
-<header>
-  <h1>👋 محمد یوسفی</h1>
-  <p>Python / Django Backend Developer</p>
-  <div class="links">
-    <a href="mailto:m.yousefi.r79@gmail.com">ایمیل</a> |
-    <a href="https://github.com/MohammadYR">GitHub</a> |
-    <a href="https://linkedin.com">LinkedIn</a>
-  </div>
-</header>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="row" style="justify-content:space-between">
+        <div>
+          <h1 class="lang-fa">👋 محمد یوسفی</h1>
+          <div class="muted lang-fa">توسعه‌دهندهٔ بک‌اند (Python / Django)</div>
 
-<main>
-  <section>
-    <h2>درباره من</h2>
-    <p>
-      من توسعه‌دهنده‌ی بک‌اند هستم با تخصص در ساخت API‌های تمیز، امن و تست‌پذیر با Django و DRF.
-      عاشق طراحی معماری تمیز و یادگیری تکنولوژی‌های جدیدم.
-    </p>
-  </section>
+          <h1 class="lang-en">👋 Mohammad Yousefi</h1>
+          <div class="muted lang-en">Backend Developer (Python / Django)</div>
+        </div>
+        <div class="row">
+          <button class="btn" id="langToggle" aria-label="Toggle language">EN</button>
+        </div>
+      </div>
 
-  <section>
-    <h2>مهارت‌ها</h2>
-    <div class="skills">
-      <span>Python</span>
-      <span>Django</span>
-      <span>DRF</span>
-      <span>PostgreSQL</span>
-      <span>Redis</span>
-      <span>Celery</span>
-      <span>Docker</span>
-      <span>Pytest</span>
-      <span>GitHub Actions</span>
+      <div class="row" style="margin-top:10px">
+        <a href="mailto:m.yousefi.r79@gmail.com" class="lang-fa">ایمیل</a>
+        <a href="mailto:m.yousefi.r79@gmail.com" class="lang-en">Email</a>
+        <span style="opacity:.35">|</span>
+        <a href="https://github.com/MohammadYR">GitHub</a>
+        <span style="opacity:.35">|</span>
+        <a href="https://www.linkedin.com/in/mohammadyousefi">LinkedIn</a>
+      </div>
     </div>
-  </section>
+  </header>
 
-  <section>
-    <h2>پروژه‌های شاخص</h2>
-    <p>
-      <b><a href="https://github.com/MohammadYR/Custom-Shop-Project">🛍️ Custom Shop Project</a></b><br>
-      بک‌اند فروشگاهی کامل با احراز هویت JWT/OTP، Docker، Celery/Redis و تست‌های Pytest.
-    </p>
-  </section>
+  <!-- Main -->
+  <main class="container" style="margin:32px auto">
+    <section class="grid">
+      <div class="card">
+        <h2 class="lang-fa">درباره من</h2>
+        <p class="lang-fa">
+          روی ساخت APIهای تمیز، امن و تست‌پذیر با Django و DRF تمرکز دارم. با Docker و Celery/Redis دیپلوی و پردازش‌های پس‌زمینه را پایدار می‌کنم.
+        </p>
 
-  <section>
-    <h2>اطلاعات تماس</h2>
-    <ul>
-      <li>📧 ایمیل: <a href="mailto:m.yousefi.r79@gmail.com">m.yousefi.r79@gmail.com</a></li>
-      <li>💻 گیت‌هاب: <a href="https://github.com/MohammadYR">github.com/MohammadYR</a></li>
-    </ul>
-  </section>
-</main>
+        <h2 class="lang-en">About</h2>
+        <p class="lang-en">
+          I build clean, secure, and testable APIs with Django & DRF. I ship with Docker and scale background jobs using Celery/Redis.
+        </p>
+      </div>
 
-<footer>
-  ساخته شده با ❤️ توسط Mohammad Yousefi — © 2025
-</footer>
+      <div class="card">
+        <h2 class="lang-fa">مهارت‌ها</h2>
+        <div class="skills lang-fa">
+          <span class="chip">Python</span><span class="chip">Django</span><span class="chip">DRF</span>
+          <span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Celery</span>
+          <span class="chip">Docker</span><span class="chip">Pytest</span><span class="chip">GitHub Actions</span>
+        </div>
 
+        <h2 class="lang-en">Skills</h2>
+        <div class="skills lang-en">
+          <span class="chip">Python</span><span class="chip">Django</span><span class="chip">DRF</span>
+          <span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Celery</span>
+          <span class="chip">Docker</span><span class="chip">Pytest</span><span class="chip">GitHub Actions</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2 class="lang-fa">پروژه‌های شاخص</h2>
+      <div class="lang-fa">
+        <p>
+          <b><a href="https://github.com/MohammadYR/Custom-Shop-Project">🛍️ Custom-Shop-Project</a></b><br>
+          بک‌اند فروشگاهی با JWT/OTP، Docker، Celery/Redis و تست‌های Pytest.
+        </p>
+      </div>
+
+      <h2 class="lang-en">Highlighted Project</h2>
+      <div class="lang-en">
+        <p>
+          <b><a href="https://github.com/MohammadYR/Custom-Shop-Project">🛍️ Custom-Shop-Project</a></b><br>
+          E-commerce backend with JWT/OTP auth, Docker, Celery/Redis, and Pytest coverage.
+        </p>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2 class="lang-fa">اطلاعات تماس</h2>
+      <ul class="lang-fa">
+        <li>📧 ایمیل: <a href="mailto:m.yousefi.r79@gmail.com">m.yousefi.r79@gmail.com</a></li>
+        <li>💻 گیت‌هاب: <a href="https://github.com/MohammadYR">github.com/MohammadYR</a></li>
+      </ul>
+
+      <h2 class="lang-en">Contact</h2>
+      <ul class="lang-en">
+        <li>📧 Email: <a href="mailto:m.yousefi.r79@gmail.com">m.yousefi.r79@gmail.com</a></li>
+        <li>💻 GitHub: <a href="https://github.com/MohammadYR">github.com/MohammadYR</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <span class="lang-fa">ساخته شده با ❤️ — Mohammad Yousefi — © 2025</span>
+    <span class="lang-en">Built with ❤️ — Mohammad Yousefi — © 2025</span>
+  </footer>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('langToggle');
+      const saved = localStorage.getItem('lang') || 'fa';
+      setLang(saved);
+
+      btn.addEventListener('click', () => {
+        const next = document.documentElement.lang === 'fa' ? 'en' : 'fa';
+        setLang(next);
+      });
+
+      function setLang(code){
+        const html = document.documentElement;
+        if(code === 'en'){
+          html.setAttribute('lang','en'); html.setAttribute('dir','ltr');
+          btn.textContent = 'FA';
+        }else{
+          html.setAttribute('lang','fa'); html.setAttribute('dir','rtl');
+          btn.textContent = 'EN';
+        }
+        localStorage.setItem('lang', code);
+      }
+    })();
+  </script>
 </body>
 </html>
