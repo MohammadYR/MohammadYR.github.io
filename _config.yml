@@ -6,6 +6,11 @@ url: "https://MohammadYR.github.io"
 # Build settings
 theme: jekyll-theme-minimal
 markdown: kramdown
+lang: fa
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Social links
 github_username: MohammadYR
@@ -13,11 +18,14 @@ email: m.yousefi.r79@gmail.com
 
 # SEO & appearance
 lang: fa
+
 plugins:
   - jekyll-seo-tag
 
 # Optional favicon or logo (اگر خواستی اضافه کن)
 # logo: /assets/logo.png
+include:
+  - assets
 
 # Exclude folders that GitHub Pages shouldn’t process
 exclude:
