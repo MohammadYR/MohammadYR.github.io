@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <title>Professional Resume</title>
+    <!-- Add Google Fonts here, example:
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    -->
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script type="module">
+      const {
+        VITE_APP_LOGO,
+        VITE_APP_TITLE,
+        VITE_ANALYTICS_ENDPOINT,
+        VITE_ANALYTICS_WEBSITE_ID,
+      } = import.meta.env;
+
+      if (VITE_APP_TITLE) {
+        document.title = VITE_APP_TITLE;
+      }
+
+      if (VITE_APP_LOGO) {
+        const iconLinks = [
+          document.querySelector('link[rel="icon"]'),
+          document.querySelector('link[rel="apple-touch-icon"]'),
+        ].filter(Boolean);
+        iconLinks.forEach((link) => {
+          link.href = VITE_APP_LOGO;
+        });
+      }
+
+      if (VITE_ANALYTICS_ENDPOINT && VITE_ANALYTICS_WEBSITE_ID) {
+        const script = document.createElement("script");
+        const baseUrl = VITE_ANALYTICS_ENDPOINT.replace(/\/$/, "");
+        script.src = `${baseUrl}/umami`;
+        script.defer = true;
+        script.dataset.websiteId = VITE_ANALYTICS_WEBSITE_ID;
+        document.body.append(script);
+      }
+    </script>
+  </body>
+
+</html>
