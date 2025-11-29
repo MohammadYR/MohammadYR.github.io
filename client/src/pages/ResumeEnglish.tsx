@@ -1,47 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Github, Linkedin, Globe, Download } from "lucide-react";
-import html2pdf from "html2pdf.js";
-import { useRef } from "react";
 
 export default function ResumeEnglish() {
-  const resumeRef = useRef<HTMLDivElement>(null);
-
   const handleDownloadPDF = () => {
-    if (!resumeRef.current) return;
-
-    const element = resumeRef.current;
-    const opt: any = {
-      margin: 10,
-      filename: "MohammadYousefi_Resume_EN.pdf",
-      image: { type: "jpeg" as const, quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { orientation: "portrait", unit: "mm", format: "a4" },
-    };
-
-    html2pdf().set(opt).from(element).save();
+    window.print();
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-4 md:p-8">
-      <div className="max-w-4xl mx-auto">
-        {/* Download Button */}
-        <div className="mb-6 flex justify-start">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 p-4 md:p-8">
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-6 flex justify-start print:hidden">
           <Button
             onClick={handleDownloadPDF}
-            className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white gap-2"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white gap-2 shadow-lg shadow-emerald-500/30"
           >
             <Download size={18} />
             Download PDF
           </Button>
         </div>
 
-        {/* Resume Container */}
-        <div
-          ref={resumeRef}
-          className="bg-white rounded-lg shadow-2xl overflow-hidden"
-        >
-          {/* Header Section */}
-          <div className="bg-gradient-to-r from-emerald-600 to-emerald-800 text-white p-8">
+        <div className="bg-white/95 border border-emerald-50 rounded-2xl shadow-2xl overflow-hidden print:shadow-none print:w-full">
+          <div className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white p-8">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold mb-2">Mohammad Yousefi</h1>
@@ -54,25 +33,27 @@ export default function ResumeEnglish() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone size={18} />
-                  <span>+98 910 875 8382</span>
+                  <a href="tel:+989108758382" className="hover:underline">
+                    +98 910 875 8382
+                  </a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail size={18} />
-                  <span>m.yousefi.r79@gmail.com</span>
+                  <a href="mailto:m.yousefi.r79@gmail.com" className="hover:underline">
+                    m.yousefi.r79@gmail.com
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Main Content */}
-          <div className="p-8">
-            {/* Links */}
+          <div className="p-8 space-y-8 bg-white">
             <div className="flex flex-wrap gap-4 mb-8">
               <a
                 href="https://github.com/MohammadYR"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-emerald-600 hover:text-emerald-800 transition"
+                className="flex items-center gap-2 text-emerald-700 hover:text-emerald-900 transition"
               >
                 <Github size={18} />
                 <span>GitHub</span>
@@ -97,45 +78,27 @@ export default function ResumeEnglish() {
               </a>
             </div>
 
-            {/* Profile Section */}
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">Professional Summary</h2>
+            <section className="mb-8 rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5">
+              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">
+                Professional Summary
+              </h2>
               <p className="text-gray-700 leading-relaxed text-justify">
-                <span className="font-semibold">Python</span> and <span className="font-semibold">Django</span> Back-End Developer with a focus on building scalable web applications. MBA (Marketing) candidate at the University of Tehran, with a B.Sc. in Mechanical Engineering. Possesses hands-on experience in developing Django projects, including a multi-seller e-commerce platform and a café ordering website. Proficient in <span className="font-semibold">REST API</span> design, <span className="font-semibold">ORM</span>, <span className="font-semibold">Redis</span>, <span className="font-semibold">Celery</span>, and <span className="font-semibold">Docker</span>-based development environments. A disciplined, highly effective problem-solver with a strong desire to learn new technologies.
+                Back-end engineer focused on <span className="font-semibold">Python</span> and{" "}
+                <span className="font-semibold">Django</span>, MBA (Marketing) candidate at the University of Tehran,
+                with hands-on experience building multi-seller commerce products and ordering systems. Skilled in
+                designing <span className="font-semibold">REST API</span>s, modelling data with ORM, orchestrating
+                background workloads via <span className="font-semibold">Redis</span>/<span className="font-semibold">
+                  Celery
+                </span>
+                , and delivering containerized services with <span className="font-semibold">Docker</span>.
               </p>
             </section>
 
-            {/* Skills Section */}
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">Technical Skills</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-emerald-50 p-4 rounded-lg">
-                  <h3 className="font-bold text-emerald-700 mb-2">Programming Languages</h3>
-                  <p className="text-gray-700 text-sm">Python, JavaScript (Basic)</p>
-                </div>
-                <div className="bg-emerald-50 p-4 rounded-lg">
-                  <h3 className="font-bold text-emerald-700 mb-2">Frameworks & Libraries</h3>
-                  <p className="text-gray-700 text-sm">Django, Django REST Framework, Celery</p>
-                </div>
-                <div className="bg-emerald-50 p-4 rounded-lg">
-                  <h3 className="font-bold text-emerald-700 mb-2">Databases</h3>
-                  <p className="text-gray-700 text-sm">PostgreSQL, SQLite</p>
-                </div>
-                <div className="bg-emerald-50 p-4 rounded-lg">
-                  <h3 className="font-bold text-emerald-700 mb-2">Tools & Infrastructure</h3>
-                  <p className="text-gray-700 text-sm">Git/GitHub, Docker, Redis, Postman, Swagger, Linux</p>
-                </div>
-                <div className="bg-emerald-50 p-4 rounded-lg md:col-span-2">
-                  <h3 className="font-bold text-emerald-700 mb-2">Web & CMS</h3>
-                  <p className="text-gray-700 text-sm">HTML/CSS, WordPress, WooCommerce, Elementor, SEO</p>
-                </div>
-              </div>
-            </section>
+            <section className="mb-8 rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5">
+              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">
+                Professional Experience
+              </h2>
 
-            {/* Experience Section */}
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">Professional Experience</h2>
-              
               <div className="mb-6">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
                   <h3 className="text-lg font-bold text-gray-800">Back-End Python/Django Bootcamp</h3>
@@ -143,9 +106,9 @@ export default function ResumeEnglish() {
                 </div>
                 <p className="text-emerald-600 font-semibold mb-2">Maktab Sharif, Tehran</p>
                 <ul className="list-disc list-inside space-y-1 text-gray-700 text-sm">
-                  <li>Executed practical projects focusing on REST API design and authentication implementation</li>
-                  <li>Utilized Redis/Celery for asynchronous task management and queue processing</li>
-                  <li>Employed Git for version control and developed within isolated Docker environments</li>
+                  <li>Delivered REST APIs with token-based authentication and granular authorization policies</li>
+                  <li>Queued asynchronous jobs (notifications, report generation) with Redis and Celery</li>
+                  <li>Maintained Git-driven workflows and shipped services inside isolated Docker environments</li>
                 </ul>
               </div>
 
@@ -156,19 +119,20 @@ export default function ResumeEnglish() {
                 </div>
                 <p className="text-emerald-600 font-semibold mb-2">Chinese Studies Foundation, Tehran</p>
                 <ul className="list-disc list-inside space-y-1 text-gray-700 text-sm">
-                  <li>Maintained and optimized the organization's WordPress website and SEO</li>
-                  <li>Coordinated with the content team for multilingual publishing and key plugin management</li>
+                  <li>Optimized site performance, SEO, and plugin stack for a multilingual newsroom</li>
+                  <li>Collaborated with the content team to manage releases and protect uptime/security</li>
                 </ul>
               </div>
             </section>
 
-            {/* Projects Section */}
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">Key Projects</h2>
-              
+            <section className="mb-8 rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5">
+              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">
+                Key Projects
+              </h2>
+
               <div className="mb-6 bg-gradient-to-r from-emerald-50 to-teal-50 p-4 rounded-lg border-l-4 border-emerald-600">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-lg font-bold text-gray-800">Custom-Shop-Project (Open Source)</h3>
+                  <h3 className="text-lg font-bold text-gray-800">Online Retail Platform (E-commerce)</h3>
                   <a
                     href="https://github.com/MohammadYR/Custom-Shop-Project"
                     target="_blank"
@@ -178,56 +142,100 @@ export default function ResumeEnglish() {
                     View
                   </a>
                 </div>
-                <p className="text-sm text-gray-600 mb-2">Django, DRF, PostgreSQL, Dockerfile, Celery</p>
+                <p className="text-sm text-gray-600 mb-2">Python, Django, DRF, PostgreSQL, Docker, Celery</p>
                 <ul className="list-disc list-inside space-y-1 text-gray-700 text-sm">
-                  <li>Developed an API-first, multi-section online shop with asynchronous task processing</li>
-                  <li>Implemented email sending and other background tasks via Celery workers</li>
+                  <li>Designed RESTful architecture covering catalog, inventory, multi-seller pricing, and orders</li>
+                  <li>Automated transactional notifications and reconciliation reports with Celery workers</li>
+                  <li>Containerized the stack with Docker and scripted CI tasks for linting/tests</li>
                 </ul>
               </div>
 
               <div className="bg-gradient-to-r from-teal-50 to-cyan-50 p-4 rounded-lg border-l-4 border-teal-600">
-                <h3 className="text-lg font-bold text-gray-800 mb-2">Café Ordering Website</h3>
-                <p className="text-sm text-gray-600 mb-2">Django, Django ORM</p>
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-lg font-bold text-gray-800">Cafe Ordering System</h3>
+                  <a
+                    href="https://github.com/MohammadYR/coffee-shop"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-600 hover:text-emerald-800 text-sm"
+                  >
+                    View
+                  </a>
+                </div>
+                <p className="text-sm text-gray-600 mb-2">Python, Django, Django ORM, Redis</p>
                 <ul className="list-disc list-inside space-y-1 text-gray-700 text-sm">
-                  <li>Implemented menu management, order placement, and user authentication system</li>
-                  <li>Experimentally utilized Redis and Docker in the development environment for performance enhancement</li>
+                  <li>Implemented menu management, cart flow, user onboarding, and order tracking</li>
+                  <li>Leveraged Redis for caching and queueing to reduce response time during rush hours</li>
                 </ul>
               </div>
             </section>
 
-            {/* Education Section */}
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">Education</h2>
-              
+            <section className="mb-8 rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5">
+              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">
+                Technical Skills
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-emerald-50 p-4 rounded-lg shadow-sm">
+                  <h3 className="font-bold text-emerald-700 mb-2">Programming Languages</h3>
+                  <p className="text-gray-700 text-sm">Python, JavaScript</p>
+                </div>
+                <div className="bg-emerald-50 p-4 rounded-lg shadow-sm">
+                  <h3 className="font-bold text-emerald-700 mb-2">Frameworks & Libraries</h3>
+                  <p className="text-gray-700 text-sm">Django, Django REST Framework, Celery</p>
+                </div>
+                <div className="bg-emerald-50 p-4 rounded-lg shadow-sm">
+                  <h3 className="font-bold text-emerald-700 mb-2">Databases</h3>
+                  <p className="text-gray-700 text-sm">PostgreSQL, SQLite</p>
+                </div>
+                <div className="bg-emerald-50 p-4 rounded-lg shadow-sm">
+                  <h3 className="font-bold text-emerald-700 mb-2">Tools & Infrastructure</h3>
+                  <p className="text-gray-700 text-sm">Git/GitHub, Docker, Redis, Postman, Swagger, Linux</p>
+                </div>
+                <div className="bg-emerald-50 p-4 rounded-lg shadow-sm md:col-span-2">
+                  <h3 className="font-bold text-emerald-700 mb-2">Web & CMS</h3>
+                  <p className="text-gray-700 text-sm">HTML/CSS, WordPress, WooCommerce, Elementor, SEO</p>
+                </div>
+              </div>
+            </section>
+
+            <section className="mb-8 rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5">
+              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">
+                Education
+              </h2>
               <div className="mb-4">
                 <h3 className="text-lg font-bold text-gray-800">MBA, Business Administration (Marketing)</h3>
                 <p className="text-emerald-600 font-semibold">University of Tehran | Ongoing</p>
               </div>
-
               <div>
                 <h3 className="text-lg font-bold text-gray-800">B.Sc., Mechanical Engineering</h3>
                 <p className="text-emerald-600 font-semibold">IAU, Science & Research Branch | Graduated</p>
               </div>
             </section>
 
-            {/* Certifications Section */}
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">Certifications</h2>
+            <section className="mb-8 rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5">
+              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">
+                Certifications
+              </h2>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-600 font-bold mt-1">•</span>
-                  <span className="text-gray-700"><span className="font-semibold">Python & Django Bootcamp</span> — Maktab Sharif (2025)</span>
+                  <span className="text-gray-700">
+                    <span className="font-semibold">Python & Django Bootcamp</span> — Maktab Sharif (2025)
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-600 font-bold mt-1">•</span>
-                  <span className="text-gray-700"><span className="font-semibold">Programming with Python</span> — Technical Complex (2019)</span>
+                  <span className="text-gray-700">
+                    <span className="font-semibold">Programming with Python</span> — Technical Complex (2019)
+                  </span>
                 </li>
               </ul>
             </section>
 
-            {/* Soft Skills Section */}
-            <section>
-              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">Soft Skills</h2>
+            <section className="rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5">
+              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">
+                Soft Skills
+              </h2>
               <div className="flex flex-wrap gap-2">
                 {[
                   "Critical Thinking",
