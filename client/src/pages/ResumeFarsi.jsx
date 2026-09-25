@@ -1,200 +1,19 @@
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Github,
-  Linkedin,
-  Globe,
-  Printer,
-} from "lucide-react";
+import { Mail, MapPin, Github, Linkedin, Globe, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
+import "../styles/resume.css";
 
 export default function ResumeFarsi() {
-  const handlePrint = () => window.print();
-
   return (
-    <div className="rz-stage" dir="rtl">
-      <style>{`
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
-
-:root {
-  --ink:      #142238;
-  --ink-soft: #2C3E56;
-  --accent:   #0E7C6B;
-  --accent-2: #64D8C6;
-  --mist:     #F3F6F8;
-  --rule:     #DCE3EA;
-  --muted:    #5C6874;
-  --paper:    #FFFFFF;
-}
-
-.rz-stage {
-  min-height: 100vh;
-  background: #E8ECF0;
-  display: flex;
-  justify-content: center;
-  padding: 24px 12px;
-  font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
-  color: var(--ink);
-  -webkit-font-smoothing: antialiased;
-}
-
-.rz-mono {
-  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-  font-size: 10.5px;
-  letter-spacing: 0.01em;
-}
-
-/* ---------- print control ---------- */
-.rz-print-btn {
-  position: fixed; top: 20px; left: 20px; z-index: 50;
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--ink); color: #fff; border: 0;
-  padding: 10px 16px; border-radius: 2px; cursor: pointer;
-  font-family: inherit; font-size: 13px; font-weight: 500;
-  box-shadow: 0 6px 20px rgba(20,34,56,.25);
-  transition: background .18s ease, transform .18s ease;
-}
-.rz-print-btn:hover { background: var(--accent); transform: translateY(-1px); }
-.rz-print-btn:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; }
-
-/* ---------- sheet ---------- */
-.rz-sheet {
-  width: 210mm; max-width: 100%;
-  min-height: 297mm;
-  background: var(--paper);
-  box-shadow: 0 18px 50px rgba(20,34,56,.18);
-  display: flex; flex-direction: column;
-}
-
-/* ---------- masthead ---------- */
-.rz-head {
-  background: var(--ink); color: #fff;
-  padding: 26px 30px 22px;
-  display: flex; justify-content: space-between; align-items: flex-end; gap: 24px;
-  border-bottom: 3px solid var(--accent);
-}
-.rz-name { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 6px; }
-.rz-role { color: var(--accent-2); font-size: 14.5px; font-weight: 500; margin: 0; }
-.rz-head-meta { text-align: left; display: flex; flex-direction: column; gap: 5px; color: #C7D2DE; }
-.rz-head-meta a, .rz-head-meta span { display: inline-flex; align-items: center; gap: 6px; color: inherit; text-decoration: none; direction: ltr; }
-.rz-head-meta a:hover { color: var(--accent-2); }
-.rz-head-meta svg { color: var(--accent-2); flex: none; }
-
-/* ---------- body grid ---------- */
-.rz-body { display: flex; flex: 1; align-items: stretch; }
-.rz-aside {
-  width: 33%;
-  background: var(--mist);
-  border-inline-start: 1px solid var(--rule);
-  padding: 20px 22px;
-}
-.rz-main { width: 67%; padding: 20px 26px 24px; }
-
-/* ---------- section headings ---------- */
-.rz-h { font-size: 12.5px; font-weight: 700; color: var(--ink); margin: 0 0 9px; display: flex; align-items: center; gap: 8px; }
-.rz-h::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
-.rz-h-main { font-size: 14px; }
-.rz-h-main::before { content: ""; width: 12px; height: 3px; background: var(--accent); flex: none; }
-
-.rz-block { margin-bottom: 17px; }
-.rz-block:last-child { margin-bottom: 0; }
-
-/* ---------- aside content ---------- */
-.rz-links { display: flex; flex-direction: column; gap: 7px; }
-.rz-links a { display: flex; align-items: center; gap: 7px; color: var(--ink-soft); text-decoration: none; }
-.rz-links a:hover { color: var(--accent); }
-.rz-links svg { color: var(--accent); flex: none; }
-
-.rz-skill { margin-bottom: 10px; }
-.rz-skill:last-child { margin-bottom: 0; }
-.rz-skill-label {
-  display: block; font-size: 10.5px; font-weight: 700; color: var(--accent);
-  margin-bottom: 3px;
-}
-.rz-skill-val { color: var(--ink-soft); font-size: 11.5px; line-height: 1.7; margin: 0; }
-
-.rz-edu { margin-bottom: 10px; }
-.rz-edu:last-child { margin-bottom: 0; }
-.rz-edu-deg { font-size: 12px; font-weight: 700; margin: 0 0 1px; }
-.rz-edu-org { font-size: 10.5px; color: var(--muted); margin: 0; }
-
-.rz-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-.rz-tag {
-  background: #fff; border: 1px solid var(--rule); color: var(--ink-soft);
-  padding: 2px 7px; font-size: 10.5px; border-radius: 2px;
-}
-
-/* ---------- main content ---------- */
-.rz-summary { font-size: 12px; line-height: 1.85; color: var(--ink-soft); margin: 0; text-align: justify; }
-
-.rz-entry { margin-bottom: 13px; break-inside: avoid; }
-.rz-entry:last-child { margin-bottom: 0; }
-
-.rz-entry-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-.rz-title { font-size: 12.8px; font-weight: 700; color: var(--ink); margin: 0; }
-.rz-date { font-size: 10.5px; color: var(--muted); white-space: nowrap; }
-.rz-org { font-size: 11px; color: var(--muted); margin: 1px 0 0; }
-
-.rz-repo {
-  display: inline-flex; align-items: center; gap: 5px;
-  color: var(--accent); text-decoration: none; margin: 3px 0 5px;
-  direction: ltr;
-}
-.rz-repo:hover { text-decoration: underline; }
-
-.rz-list { list-style: none; padding: 0; margin: 4px 0 0; }
-.rz-list li {
-  position: relative; padding-inline-start: 13px;
-  font-size: 11.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 3px;
-}
-.rz-list li::before {
-  content: ""; position: absolute; inset-inline-start: 0; top: 8px;
-  width: 4px; height: 4px; background: var(--accent);
-}
-
-/* timeline rail for work history */
-.rz-rail { border-inline-start: 1px solid var(--rule); padding-inline-start: 14px; position: relative; }
-.rz-rail::before {
-  content: ""; position: absolute; inset-inline-start: -3.5px; top: 6px;
-  width: 6px; height: 6px; background: var(--accent);
-}
-
-
-/* ---------- responsive ---------- */
-@media (max-width: 800px) {
-  .rz-body { flex-direction: column; }
-  .rz-aside, .rz-main { width: 100%; }
-  .rz-aside { border-inline-start: 0; border-top: 1px solid var(--rule); }
-  .rz-sheet { min-height: 0; }
-  .rz-head { flex-direction: column; align-items: flex-start; }
-  .rz-head-meta { text-align: right; }
-}
-
-/* ---------- print ---------- */
-@page { size: A4; margin: 0; }
-
-@media print {
-  .rz-stage { background: #fff; padding: 0; display: block; min-height: 0; }
-  .rz-sheet { width: 100%; min-height: 0; box-shadow: none; }
-  .rz-print-btn { display: none !important; }
-  .rz-body { flex-direction: row; }
-  .rz-aside { width: 33%; }
-  .rz-main { width: 67%; }
-  .rz-head, .rz-aside, .rz-tag, .rz-list li::before, .rz-rail::before, .rz-h-main::before {
-    -webkit-print-color-adjust: exact; print-color-adjust: exact;
-  }
-  a { text-decoration: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .rz-print-btn { transition: none; }
-}
-      `}</style>
-
-      <button className="rz-print-btn" onClick={handlePrint}>
-        <Printer size={16} />
-        دانلود PDF / پرینت
-      </button>
+    <div className="rz-stage mx-root" dir="rtl" lang="fa">
+      <nav className="rz-topbar">
+        <Link href="/">
+          <ArrowRight size={15} /> بازگشت به پورتفولیو
+        </Link>
+        <div className="rz-lang mx-mono" dir="ltr">
+          <Link href="/resume-en">EN</Link>
+          <span className="is-active">FA</span>
+        </div>
+      </nav>
 
       <div className="rz-sheet">
         {/* ---------------- masthead ---------------- */}
@@ -206,16 +25,14 @@ export default function ResumeFarsi() {
             </p>
           </div>
 
-          <div className="rz-head-meta rz-mono">
-            <a href="tel:+989108758382">
-              <Phone size={13} /> +98 910 875 8382
-            </a>
+          <div className="rz-head-meta mx-mono">
             <a href="mailto:m.yousefi.r79@gmail.com">
               <Mail size={13} /> m.yousefi.r79@gmail.com
             </a>
             <span>
               <MapPin size={13} /> Tehran, Iran
             </span>
+            <span className="rz-note">نسخهٔ PDF رزومه در صورت درخواست ارسال می‌شود</span>
           </div>
         </header>
 
@@ -245,7 +62,7 @@ export default function ResumeFarsi() {
                   <span className="rz-date">پروژهٔ پایانی بوت‌کمپ</span>
                 </div>
                 <a
-                  className="rz-repo rz-mono"
+                  className="rz-repo mx-mono"
                   href="https://github.com/MohammadYR/Custom-Shop-Project"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -261,7 +78,7 @@ export default function ResumeFarsi() {
                     "Redis",
                     "Docker",
                   ].map((t) => (
-                    <span key={t} className="rz-tag rz-mono">
+                    <span key={t} className="rz-tag mx-mono">
                       {t}
                     </span>
                   ))}
@@ -296,7 +113,7 @@ export default function ResumeFarsi() {
                   <span className="rz-date">پروژهٔ تیمی (تیم ۳ نفره)</span>
                 </div>
                 <a
-                  className="rz-repo rz-mono"
+                  className="rz-repo mx-mono"
                   href="https://github.com/mohammadsafarpour/coffee-shop"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -305,7 +122,7 @@ export default function ResumeFarsi() {
                 </a>
                 <div className="rz-tags">
                   {["Django", "DRF", "PostgreSQL", "JWT + OTP"].map((t) => (
-                    <span key={t} className="rz-tag rz-mono">
+                    <span key={t} className="rz-tag mx-mono">
                       {t}
                     </span>
                   ))}
@@ -382,7 +199,7 @@ export default function ResumeFarsi() {
           <aside className="rz-aside">
             <section className="rz-block">
               <h2 className="rz-h">لینک‌ها</h2>
-              <div className="rz-links rz-mono">
+              <div className="rz-links mx-mono">
                 <a
                   href="https://github.com/MohammadYR"
                   target="_blank"

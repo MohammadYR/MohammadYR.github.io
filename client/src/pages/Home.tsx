@@ -1,196 +1,250 @@
-import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { FileText, Github, Linkedin, Globe, Download, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import "../styles/home.css";
+
+const EMAIL = "m.yousefi.r79@gmail.com";
+const GITHUB = "https://github.com/MohammadYR";
+const LINKEDIN = "https://www.linkedin.com/in/mohammadyousefi";
+
+const projects = [
+  {
+    kicker: "Bootcamp capstone · Solo",
+    title: "Multi-Vendor Marketplace",
+    desc: "Back-end for a marketplace where many sellers list products and buyers order from them.",
+    repo: "https://github.com/MohammadYR/Custom-Shop-Project",
+    repoLabel: "Custom-Shop-Project",
+    bullets: [
+      "Modular domain apps on a shared base with soft delete",
+      "JWT auth with SMS/email OTP and separate seller/buyer permissions",
+      "Cart → order → payment flow; SMS offloaded to Celery on Redis",
+      "Custom admin panel, Docker Compose setup and Swagger API docs",
+    ],
+    tags: ["Django", "DRF", "PostgreSQL", "Celery", "Redis", "Docker"],
+  },
+  {
+    kicker: "Team project · 3 people",
+    title: "Cafe Ordering System",
+    desc: "Ordering system for a cafe with a server-rendered web UI and a REST API over the same models.",
+    repo: "https://github.com/mohammadsafarpour/coffee-shop",
+    repoLabel: "coffee-shop",
+    bullets: [
+      "Django-template web interface plus a separate REST API",
+      "User profiles, wishlists and product reviews",
+      "Catalog with categories and multiple images",
+      "Orders with status tracking and total calculation",
+    ],
+    tags: ["Django", "DRF", "PostgreSQL", "JWT + OTP"],
+  },
+];
+
+function Terminal() {
+  return (
+    <div className="hm-term" aria-label="Profile summary as an API response">
+      <div className="hm-term-bar" aria-hidden="true">
+        <i />
+        <i />
+        <i />
+        <b>~/mohammad — zsh</b>
+      </div>
+      <pre>
+        <span className="t-prompt">$</span> curl /api/v1/developers/mohammad-yousefi{"\n"}
+        <span className="t-ok">HTTP/1.1 200 OK</span>
+        {"\n"}
+        <span className="t-dim">content-type: application/json</span>
+        {"\n\n"}
+        {"{\n"}
+        {"  "}<span className="t-key">"role"</span>: <span className="t-str">"Back-End Developer"</span>,{"\n"}
+        {"  "}<span className="t-key">"stack"</span>: [<span className="t-str">"Python"</span>, <span className="t-str">"Django"</span>, <span className="t-str">"DRF"</span>],{"\n"}
+        {"  "}<span className="t-key">"database"</span>: <span className="t-str">"PostgreSQL"</span>,{"\n"}
+        {"  "}<span className="t-key">"async"</span>: [<span className="t-str">"Celery"</span>, <span className="t-str">"Redis"</span>],{"\n"}
+        {"  "}<span className="t-key">"ships_with"</span>: <span className="t-str">"Docker Compose"</span>,{"\n"}
+        {"  "}<span className="t-key">"background"</span>: [<span className="t-str">"Mech. Eng."</span>, <span className="t-str">"MBA"</span>],{"\n"}
+        {"  "}<span className="t-key">"location"</span>: <span className="t-str">"Tehran, Iran"</span>,{"\n"}
+        {"  "}<span className="t-key">"open_to_work"</span>: <span className="t-bool">true</span>{"\n"}
+        {"}\n"}
+        <span className="t-prompt">$</span> <span className="t-cursor" aria-hidden="true" />
+      </pre>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Navigation */}
-      <nav className="bg-white/10 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-white">Mohammad Yousefi</h1>
-          <div className="flex gap-4">
-            <a
-              href="https://github.com/MohammadYR"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/mohammadyousefi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition"
-            >
-              LinkedIn
-            </a>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <div className="max-w-6xl mx-auto px-4 md:px-8 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+    <div className="hm mx-root" lang="en">
+      <header className="hm-nav">
+        <div className="hm-wrap">
+          <a href="#top" className="hm-brand">
+            <span className="hm-mono-mark">MY</span>
             Mohammad Yousefi
-          </h2>
-          <p className="text-xl text-blue-300 font-semibold mb-4">Back-End Developer · Python · Django · DRF</p>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-            Building modular back-ends and REST APIs with Django and DRF. MBA (Marketing) student at University of Tehran. Based in Tehran.
-          </p>
+          </a>
+          <nav className="hm-nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a>
+            <div className="hm-nav-icons">
+              <a href={GITHUB} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <Github size={18} />
+              </a>
+              <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Linkedin size={18} />
+              </a>
+              <a href={`mailto:${EMAIL}`} aria-label="Email">
+                <Mail size={18} />
+              </a>
+            </div>
+          </nav>
         </div>
+      </header>
 
-        {/* Resume Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {/* Persian Resume Card */}
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 rounded-xl blur-xl opacity-25 group-hover:opacity-40 transition duration-300"></div>
-            <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 hover:border-white/40 transition">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-blue-500/20 rounded-lg">
-                  <FileText className="text-blue-400" size={24} />
-                </div>
-                <h3 className="text-2xl font-bold text-white">رزومه فارسی</h3>
-              </div>
-              <p className="text-gray-300 mb-6">
-                رزومه حرفه‌ای به زبان فارسی با طراحی مدرن. قابل دانلود به صورت PDF.
+      <main>
+        <section className="hm-hero" id="top">
+          <div className="hm-wrap hm-hero-grid">
+            <div>
+              <p className="hm-eyebrow">// back-end developer · tehran</p>
+              <h1 className="hm-title">
+                Mohammad
+                <br />
+                Yousefi<span>.</span>
+              </h1>
+              <p className="hm-lead">
+                I build the part users never see: modular Django back-ends, clean REST APIs, and the queues and
+                containers that keep them running.
               </p>
-              <Link href="/resume-fa">
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white gap-2 group/btn">
-                  مشاهده رزومه
-                  <ExternalLink size={18} className="group-hover/btn:translate-x-1 transition" />
-                </Button>
+              <div className="hm-chips">
+                {["Python", "Django", "DRF", "PostgreSQL", "Celery", "Redis", "Docker"].map((t) => (
+                  <span key={t} className="hm-chip">
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <div className="hm-ctas">
+                <Link href="/resume-en" className="hm-btn hm-btn-primary">
+                  View Resume <ArrowRight size={16} />
+                </Link>
+                <Link href="/resume-fa" className="hm-btn hm-btn-ghost" lang="fa">
+                  رزومهٔ فارسی
+                </Link>
+                <a href={`mailto:${EMAIL}`} className="hm-mail">
+                  <Mail size={15} /> {EMAIL}
+                </a>
+              </div>
+            </div>
+            <Terminal />
+          </div>
+
+          <div className="hm-strip">
+            <div className="hm-wrap hm-strip-grid">
+              <div className="hm-strip-item">
+                <span className="hm-strip-k">Training</span>
+                <span className="hm-strip-v">Back-end bootcamp</span>
+                <br />
+                <span className="hm-strip-s">Maktab Sharif · 9 months, 2025</span>
+              </div>
+              <div className="hm-strip-item">
+                <span className="hm-strip-k">Studying</span>
+                <span className="hm-strip-v">MBA, Marketing</span>
+                <br />
+                <span className="hm-strip-s">University of Tehran</span>
+              </div>
+              <div className="hm-strip-item">
+                <span className="hm-strip-k">Degree</span>
+                <span className="hm-strip-v">B.Sc. Mechanical Engineering</span>
+                <br />
+                <span className="hm-strip-s">IAU, Science and Research Branch</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="hm-section hm-section-mist" id="projects">
+          <div className="hm-wrap">
+            <div className="hm-sec-head">
+              <span className="hm-sec-num">01</span>
+              <h2 className="hm-sec-title">Selected projects</h2>
+              <span className="hm-sec-line" />
+            </div>
+            <div className="hm-projects">
+              {projects.map((p) => (
+                <article key={p.title} className="hm-card">
+                  <div className="hm-card-top">
+                    <div>
+                      <span className="hm-card-kicker">{p.kicker}</span>
+                      <h3 className="hm-card-title">{p.title}</h3>
+                    </div>
+                    <a className="hm-card-repo" href={p.repo} target="_blank" rel="noopener noreferrer">
+                      <Github size={14} /> {p.repoLabel}
+                    </a>
+                  </div>
+                  <p className="hm-card-desc">{p.desc}</p>
+                  <ul className="hm-bullets">
+                    {p.bullets.map((b) => (
+                      <li key={b}>{b}</li>
+                    ))}
+                  </ul>
+                  <div className="hm-tags">
+                    {p.tags.map((t) => (
+                      <span key={t} className="hm-tag">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="hm-section" id="resume">
+          <div className="hm-wrap">
+            <div className="hm-sec-head">
+              <span className="hm-sec-num">02</span>
+              <h2 className="hm-sec-title">Resume</h2>
+              <span className="hm-sec-line" />
+            </div>
+            <div className="hm-resumes">
+              <Link href="/resume-en" className="hm-rcard" dir="ltr">
+                <span className="hm-rcard-badge">EN</span>
+                <span className="hm-rcard-body">
+                  <span className="hm-rcard-title" style={{ display: "block" }}>
+                    English Resume
+                  </span>
+                  <span className="hm-rcard-desc">Projects, experience, skills and education on one page.</span>
+                </span>
+                <ArrowRight className="hm-rcard-go" size={20} />
+              </Link>
+              <Link href="/resume-fa" className="hm-rcard" dir="rtl" lang="fa">
+                <span className="hm-rcard-badge">FA</span>
+                <span className="hm-rcard-body">
+                  <span className="hm-rcard-title" style={{ display: "block" }}>
+                    رزومهٔ فارسی
+                  </span>
+                  <span className="hm-rcard-desc">پروژه‌ها، سوابق، مهارت‌ها و تحصیلات در یک صفحه.</span>
+                </span>
+                <ArrowLeft className="hm-rcard-go" size={20} />
               </Link>
             </div>
+            <p className="hm-note">
+              Need a PDF copy? Email me at <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+            </p>
           </div>
+        </section>
+      </main>
 
-          {/* English Resume Card */}
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-xl blur-xl opacity-25 group-hover:opacity-40 transition duration-300"></div>
-            <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 hover:border-white/40 transition">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-emerald-500/20 rounded-lg">
-                  <FileText className="text-emerald-400" size={24} />
-                </div>
-                <h3 className="text-2xl font-bold text-white">English Resume</h3>
-              </div>
-              <p className="text-gray-300 mb-6">
-                Professional resume in English with modern design. Download as PDF.
-              </p>
-              <Link href="/resume-en">
-                <Button className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white gap-2 group/btn">
-                  View Resume
-                  <ExternalLink size={18} className="group-hover/btn:translate-x-1 transition" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* About Section */}
-        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8 md:p-12 mb-16">
-          <h3 className="text-3xl font-bold text-white mb-6">About Me</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-xl font-semibold text-blue-300 mb-3">Professional</h4>
-              <p className="text-gray-300 leading-relaxed">
-                I'm a back-end developer focused on Python and Django/DRF. I design and build modular architectures, standard REST APIs, PostgreSQL databases, and services using Docker, Redis and Celery. I enjoy technically complex problems and use AI in my development workflow to raise code quality.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-xl font-semibold text-emerald-300 mb-3">Education</h4>
-              <p className="text-gray-300 leading-relaxed">
-                Currently pursuing an MBA (Marketing) at University of Tehran. B.Sc. in Mechanical Engineering from Islamic Azad University, Science and Research Branch. Completed a 9-month back-end bootcamp at Maktab Sharif (Maktab 130).
-              </p>
-            </div>
-            <div>
-              <h4 className="text-xl font-semibold text-purple-300 mb-3">Skills</h4>
-              <p className="text-gray-300 leading-relaxed">
-                Python, Django, Django REST Framework, PostgreSQL, SQLite, Django ORM, Docker, Docker Compose, Celery, Redis, Git, Postman, Linux, WordPress and HTML/CSS. Strong at problem solving, teamwork, and learning quickly.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-xl font-semibold text-pink-300 mb-3">Interests</h4>
-              <p className="text-gray-300 leading-relaxed">
-                Web development, software architecture, digital marketing, and entrepreneurship. I enjoy working on challenging projects and collaborating with talented teams.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Links Section */}
-        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8 md:p-12 mb-16">
-          <h3 className="text-3xl font-bold text-white mb-8 text-center">Connect With Me</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Portfolio */}
-            <a
-              href="https://mohammadyr.github.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
-              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 hover:border-white/40 transition text-center">
-                <Globe className="text-blue-400 mx-auto mb-3" size={32} />
-                <h4 className="text-xl font-semibold text-white mb-2">Portfolio</h4>
-                <p className="text-gray-300 text-sm mb-4">Check out my projects and work</p>
-                <span className="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200 transition">
-                  Visit Portfolio
-                  <ExternalLink size={16} />
-                </span>
-              </div>
+      <footer className="hm-foot">
+        <div className="hm-wrap">
+          <span>© 2026 Mohammad Yousefi · Tehran</span>
+          <div className="hm-foot-icons">
+            <a href={GITHUB} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <Github size={17} />
             </a>
-
-            {/* LinkedIn */}
-            <a
-              href="https://www.linkedin.com/in/mohammadyousefi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
-              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 hover:border-white/40 transition text-center">
-                <Linkedin className="text-cyan-400 mx-auto mb-3" size={32} />
-                <h4 className="text-xl font-semibold text-white mb-2">LinkedIn</h4>
-                <p className="text-gray-300 text-sm mb-4">Professional network & experience</p>
-                <span className="inline-flex items-center gap-2 text-cyan-300 hover:text-cyan-200 transition">
-                  View Profile
-                  <ExternalLink size={16} />
-                </span>
-              </div>
+            <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <Linkedin size={17} />
             </a>
-
-            {/* GitHub */}
-            <a
-              href="https://github.com/MohammadYR"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-400 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
-              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 hover:border-white/40 transition text-center">
-                <Github className="text-purple-400 mx-auto mb-3" size={32} />
-                <h4 className="text-xl font-semibold text-white mb-2">GitHub</h4>
-                <p className="text-gray-300 text-sm mb-4">Open source projects & code</p>
-                <span className="inline-flex items-center gap-2 text-purple-300 hover:text-purple-200 transition">
-                  View Code
-                  <ExternalLink size={16} />
-                </span>
-              </div>
+            <a href={`mailto:${EMAIL}`} aria-label="Email">
+              <Mail size={17} />
             </a>
           </div>
         </div>
-
-        {/* Footer */}
-        <div className="text-center text-gray-400">
-          <p>
-            Built with <span className="text-red-400">❤</span> using React, TypeScript & Tailwind CSS
-          </p>
-          <p className="text-sm mt-2">© 2026 Mohammad Yousefi. All rights reserved.</p>
-        </div>
-      </div>
+      </footer>
     </div>
   );
 }
