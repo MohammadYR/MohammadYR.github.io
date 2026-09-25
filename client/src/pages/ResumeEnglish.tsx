@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Github, Linkedin, Globe, Download } from "lucide-react";
 
+const sectionClass = "mb-8 rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5";
+const headingClass = "text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200";
+
 export default function ResumeEnglish() {
   const handleDownloadPDF = () => {
     window.print();
@@ -24,12 +27,14 @@ export default function ResumeEnglish() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold mb-2">Mohammad Yousefi</h1>
-                <p className="text-emerald-100 text-xl font-semibold">Python/Django Back-End Developer</p>
+                <p className="text-emerald-100 text-xl font-semibold">
+                  Back-End Developer · Python · Django · DRF
+                </p>
               </div>
               <div className="flex flex-col gap-3 text-sm">
                 <div className="flex items-center gap-2">
                   <MapPin size={18} />
-                  <span>Tehran</span>
+                  <span>Tehran, Iran</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone size={18} />
@@ -78,61 +83,49 @@ export default function ResumeEnglish() {
               </a>
             </div>
 
-            <section className="mb-8 rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5">
-              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">
-                Professional Summary
-              </h2>
+            <section className={sectionClass}>
+              <h2 className={headingClass}>Professional Summary</h2>
               <p className="text-gray-700 leading-relaxed text-justify">
-                Back-end engineer focused on <span className="font-semibold">Python</span> and{" "}
-                <span className="font-semibold">Django</span>, MBA (Marketing) candidate at the University of Tehran,
-                with hands-on experience building multi-seller commerce products and ordering systems. Skilled in
-                designing <span className="font-semibold">REST API</span>s, modelling data with ORM, orchestrating
-                background workloads via <span className="font-semibold">Redis</span>/<span className="font-semibold">
-                  Celery
-                </span>
-                , and delivering containerized services with <span className="font-semibold">Docker</span>.
+                Back-end developer with a strong focus on <span className="font-semibold">Python</span> and{" "}
+                <span className="font-semibold">Django/DRF</span>, with a background in mechanical engineering and
+                an MBA in marketing in progress. Experienced in designing and implementing modular architectures,
+                standard <span className="font-semibold">REST API</span>s, relational databases (
+                <span className="font-semibold">PostgreSQL</span>) and modern development tooling (Docker, Redis,
+                Celery). Enjoys solving technically complex problems and raising code quality by bringing AI into the
+                development workflow.
               </p>
             </section>
 
-            <section className="mb-8 rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5">
-              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">
-                Professional Experience
-              </h2>
-
-              <div className="mb-6">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
-                  <h3 className="text-lg font-bold text-gray-800">Back-End Python/Django Bootcamp</h3>
-                  <span className="text-sm text-gray-500 mt-1 md:mt-0">Feb 2025 – Nov 2025</span>
+            <section className={sectionClass}>
+              <h2 className={headingClass}>Technical Skills</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-emerald-50 p-4 rounded-lg shadow-sm">
+                  <h3 className="font-bold text-emerald-700 mb-2">Languages & Frameworks</h3>
+                  <p className="text-gray-700 text-sm">Python · Django · Django REST Framework · REST API</p>
                 </div>
-                <p className="text-emerald-600 font-semibold mb-2">Maktab Sharif, Tehran</p>
-                <ul className="list-disc list-inside space-y-1 text-gray-700 text-sm">
-                  <li>Delivered REST APIs with token-based authentication and granular authorization policies</li>
-                  <li>Queued asynchronous jobs (notifications, report generation) with Redis and Celery</li>
-                  <li>Maintained Git-driven workflows and shipped services inside isolated Docker environments</li>
-                </ul>
-              </div>
-
-              <div>
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
-                  <h3 className="text-lg font-bold text-gray-800">WordPress Webmaster</h3>
-                  <span className="text-sm text-gray-500 mt-1 md:mt-0">Jul 2024 – Sep 2024</span>
+                <div className="bg-emerald-50 p-4 rounded-lg shadow-sm">
+                  <h3 className="font-bold text-emerald-700 mb-2">Databases</h3>
+                  <p className="text-gray-700 text-sm">PostgreSQL · SQLite · Django ORM · Data modelling & ERD</p>
                 </div>
-                <p className="text-emerald-600 font-semibold mb-2">Chinese Studies Foundation, Tehran</p>
-                <ul className="list-disc list-inside space-y-1 text-gray-700 text-sm">
-                  <li>Optimized site performance, SEO, and plugin stack for a multilingual newsroom</li>
-                  <li>Collaborated with the content team to manage releases and protect uptime/security</li>
-                </ul>
+                <div className="bg-emerald-50 p-4 rounded-lg shadow-sm">
+                  <h3 className="font-bold text-emerald-700 mb-2">Tools</h3>
+                  <p className="text-gray-700 text-sm">
+                    Git & GitHub · Docker · Docker Compose · Postman · Celery · Redis · Linux
+                  </p>
+                </div>
+                <div className="bg-emerald-50 p-4 rounded-lg shadow-sm">
+                  <h3 className="font-bold text-emerald-700 mb-2">Web</h3>
+                  <p className="text-gray-700 text-sm">WordPress · HTML/CSS</p>
+                </div>
               </div>
             </section>
 
-            <section className="mb-8 rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5">
-              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">
-                Key Projects
-              </h2>
+            <section className={sectionClass}>
+              <h2 className={headingClass}>Key Projects</h2>
 
               <div className="mb-6 bg-gradient-to-r from-emerald-50 to-teal-50 p-4 rounded-lg border-l-4 border-emerald-600">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-lg font-bold text-gray-800">Online Retail Platform (E-commerce)</h3>
+                  <h3 className="text-lg font-bold text-gray-800">Multi-Vendor Marketplace (Custom Shop)</h3>
                   <a
                     href="https://github.com/MohammadYR/Custom-Shop-Project"
                     target="_blank"
@@ -142,19 +135,22 @@ export default function ResumeEnglish() {
                     View
                   </a>
                 </div>
-                <p className="text-sm text-gray-600 mb-2">Python, Django, DRF, PostgreSQL, Docker, Celery</p>
+                <p className="text-sm text-gray-600 mb-2">Django, DRF, PostgreSQL, Celery, Redis, Docker</p>
                 <ul className="list-disc list-inside space-y-1 text-gray-700 text-sm">
-                  <li>Designed RESTful architecture covering catalog, inventory, multi-seller pricing, and orders</li>
-                  <li>Automated transactional notifications and reconciliation reports with Celery workers</li>
-                  <li>Containerized the stack with Docker and scripted CI tasks for linting/tests</li>
+                  <li>Modular architecture with separate domain apps and Soft Delete implemented in a shared base app</li>
+                  <li>JWT authentication with SMS/email OTP, and separate permission levels for sellers and buyers</li>
+                  <li>Implemented the shopping cart, order placement and payment transaction flow</li>
+                  <li>Custom admin panel for managing sellers, products and orders</li>
+                  <li>Moved slow tasks such as sending SMS to a Celery queue backed by Redis</li>
+                  <li>Runs with Docker Compose; API documented automatically with Swagger</li>
                 </ul>
               </div>
 
               <div className="bg-gradient-to-r from-teal-50 to-cyan-50 p-4 rounded-lg border-l-4 border-teal-600">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-lg font-bold text-gray-800">Cafe Ordering System</h3>
+                  <h3 className="text-lg font-bold text-gray-800">Cafe Ordering System (3-person team)</h3>
                   <a
-                    href="https://github.com/MohammadYR/coffee-shop"
+                    href="https://github.com/mohammadsafarpour/coffee-shop"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-emerald-600 hover:text-emerald-800 text-sm"
@@ -162,91 +158,82 @@ export default function ResumeEnglish() {
                     View
                   </a>
                 </div>
-                <p className="text-sm text-gray-600 mb-2">Python, Django, Django ORM, Redis</p>
+                <p className="text-sm text-gray-600 mb-2">Django, DRF, PostgreSQL, JWT + OTP</p>
                 <ul className="list-disc list-inside space-y-1 text-gray-700 text-sm">
-                  <li>Implemented menu management, cart flow, user onboarding, and order tracking</li>
-                  <li>Leveraged Redis for caching and queueing to reduce response time during rush hours</li>
+                  <li>Web interface built with Django templates, plus a separate REST API on the same models</li>
+                  <li>User profiles, wishlists and product reviews</li>
+                  <li>
+                    Product catalog with categories and multiple images; order placement with status tracking and
+                    total calculation
+                  </li>
                 </ul>
               </div>
             </section>
 
-            <section className="mb-8 rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5">
-              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">
-                Technical Skills
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-emerald-50 p-4 rounded-lg shadow-sm">
-                  <h3 className="font-bold text-emerald-700 mb-2">Programming Languages</h3>
-                  <p className="text-gray-700 text-sm">Python, JavaScript</p>
+            <section className={sectionClass}>
+              <h2 className={headingClass}>Experience & Training</h2>
+
+              <div className="mb-6">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
+                  <h3 className="text-lg font-bold text-gray-800">Back-End Programming Bootcamp</h3>
+                  <span className="text-sm text-gray-500 mt-1 md:mt-0">Feb 2025 – Nov 2025</span>
                 </div>
-                <div className="bg-emerald-50 p-4 rounded-lg shadow-sm">
-                  <h3 className="font-bold text-emerald-700 mb-2">Frameworks & Libraries</h3>
-                  <p className="text-gray-700 text-sm">Django, Django REST Framework, Celery</p>
+                <p className="text-emerald-600 font-semibold mb-2">Maktab Sharif (Maktab 130)</p>
+                <ul className="list-disc list-inside space-y-1 text-gray-700 text-sm">
+                  <li>Intensive 9-month program: Python, OOP, Django and DRF, databases, Git and teamwork</li>
+                  <li>Weekly assignments and periodic assessments under a mentor, with code reviews</li>
+                  <li>Delivered one team project and one individual capstone project</li>
+                </ul>
+              </div>
+
+              <div className="mb-6">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
+                  <h3 className="text-lg font-bold text-gray-800">E-commerce Website Development & Content</h3>
+                  <span className="text-sm text-gray-500 mt-1 md:mt-0">4 months, 2024</span>
                 </div>
-                <div className="bg-emerald-50 p-4 rounded-lg shadow-sm">
-                  <h3 className="font-bold text-emerald-700 mb-2">Databases</h3>
-                  <p className="text-gray-700 text-sm">PostgreSQL, SQLite</p>
+                <p className="text-emerald-600 font-semibold mb-2">Freelance</p>
+                <ul className="list-disc list-inside space-y-1 text-gray-700 text-sm">
+                  <li>
+                    Updated products, content and pages across several WordPress online stores and fixed visual and
+                    structural issues
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
+                  <h3 className="text-lg font-bold text-gray-800">Website Technical Management</h3>
+                  <span className="text-sm text-gray-500 mt-1 md:mt-0">3 months (full-time), 2024</span>
                 </div>
-                <div className="bg-emerald-50 p-4 rounded-lg shadow-sm">
-                  <h3 className="font-bold text-emerald-700 mb-2">Tools & Infrastructure</h3>
-                  <p className="text-gray-700 text-sm">Git/GitHub, Docker, Redis, Postman, Swagger, Linux</p>
-                </div>
-                <div className="bg-emerald-50 p-4 rounded-lg shadow-sm md:col-span-2">
-                  <h3 className="font-bold text-emerald-700 mb-2">Web & CMS</h3>
-                  <p className="text-gray-700 text-sm">HTML/CSS, WordPress, WooCommerce, Elementor, SEO</p>
-                </div>
+                <p className="text-emerald-600 font-semibold mb-2">International Foundation for China Studies</p>
+                <ul className="list-disc list-inside space-y-1 text-gray-700 text-sm">
+                  <li>
+                    Debugged and fixed technical issues across the organization's websites, built new pages and
+                    templates, designed a landing page and redesigned the home page
+                  </li>
+                </ul>
               </div>
             </section>
 
-            <section className="mb-8 rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5">
-              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">
-                Education
-              </h2>
+            <section className={sectionClass}>
+              <h2 className={headingClass}>Education</h2>
               <div className="mb-4">
-                <h3 className="text-lg font-bold text-gray-800">MBA, Business Administration (Marketing)</h3>
-                <p className="text-emerald-600 font-semibold">University of Tehran | Ongoing</p>
+                <h3 className="text-lg font-bold text-gray-800">MBA — Marketing</h3>
+                <p className="text-emerald-600 font-semibold">University of Tehran · In progress</p>
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-800">B.Sc., Mechanical Engineering</h3>
-                <p className="text-emerald-600 font-semibold">IAU, Science & Research Branch | Graduated</p>
+                <p className="text-emerald-600 font-semibold">Islamic Azad University, Science and Research Branch</p>
               </div>
             </section>
 
-            <section className="mb-8 rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5">
-              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">
-                Certifications
-              </h2>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold mt-1">•</span>
-                  <span className="text-gray-700">
-                    <span className="font-semibold">Python & Django Bootcamp</span> — Maktab Sharif (2025)
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold mt-1">•</span>
-                  <span className="text-gray-700">
-                    <span className="font-semibold">Programming with Python</span> — Technical Complex (2019)
-                  </span>
-                </li>
-              </ul>
-            </section>
-
             <section className="rounded-xl border border-emerald-50 bg-white/80 shadow-sm p-5">
-              <h2 className="text-2xl font-bold text-emerald-700 mb-4 pb-2 border-b-2 border-emerald-200">
-                Soft Skills
-              </h2>
+              <h2 className={headingClass}>Languages & Soft Skills</h2>
+              <p className="text-gray-700 mb-4">
+                <span className="font-semibold">Languages:</span> Persian (native) · English (intermediate)
+              </p>
               <div className="flex flex-wrap gap-2">
-                {[
-                  "Critical Thinking",
-                  "Problem Solving",
-                  "Accountability",
-                  "Persistence",
-                  "Adaptability",
-                  "Creativity",
-                  "Active Listening",
-                  "Self-Awareness",
-                ].map((skill) => (
+                {["Problem Solving", "Teamwork", "Accountability", "Fast Learner"].map((skill) => (
                   <span
                     key={skill}
                     className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium"

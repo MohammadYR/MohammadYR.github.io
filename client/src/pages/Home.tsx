@@ -36,9 +36,9 @@ export default function Home() {
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
             Mohammad Yousefi
           </h2>
-          <p className="text-xl text-blue-300 font-semibold mb-4">Python/Django Back-End Developer</p>
+          <p className="text-xl text-blue-300 font-semibold mb-4">Back-End Developer · Python · Django · DRF</p>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-            Building scalable web applications with Python and Django. MBA candidate at University of Tehran. Based in Tehran.
+            Building modular back-ends and REST APIs with Django and DRF. MBA (Marketing) student at University of Tehran. Based in Tehran.
           </p>
         </div>
 
@@ -96,19 +96,19 @@ export default function Home() {
             <div>
               <h4 className="text-xl font-semibold text-blue-300 mb-3">Professional</h4>
               <p className="text-gray-300 leading-relaxed">
-                I'm a back-end developer focused on Python and Django. I build scalable, maintainable web applications with clean code and best practices. My experience includes REST API design, database optimization, and asynchronous task processing.
+                I'm a back-end developer focused on Python and Django/DRF. I design and build modular architectures, standard REST APIs, PostgreSQL databases, and services using Docker, Redis and Celery. I enjoy technically complex problems and use AI in my development workflow to raise code quality.
               </p>
             </div>
             <div>
               <h4 className="text-xl font-semibold text-emerald-300 mb-3">Education</h4>
               <p className="text-gray-300 leading-relaxed">
-                Currently pursuing an MBA in Business Administration (Marketing) at University of Tehran. Bachelor's degree in Mechanical Engineering. Completed intensive bootcamp in Python and Django development at Maktab Sharif.
+                Currently pursuing an MBA (Marketing) at University of Tehran. B.Sc. in Mechanical Engineering from Islamic Azad University, Science and Research Branch. Completed a 9-month back-end bootcamp at Maktab Sharif (Maktab 130).
               </p>
             </div>
             <div>
               <h4 className="text-xl font-semibold text-purple-300 mb-3">Skills</h4>
               <p className="text-gray-300 leading-relaxed">
-                Python, Django, Django REST Framework, PostgreSQL, Redis, Celery, Docker, Git, HTML/CSS, WordPress, and more. Strong problem-solving abilities and passion for learning new technologies.
+                Python, Django, Django REST Framework, PostgreSQL, SQLite, Django ORM, Docker, Docker Compose, Celery, Redis, Git, Postman, Linux, WordPress and HTML/CSS. Strong at problem solving, teamwork, and learning quickly.
               </p>
             </div>
             <div>
@@ -188,7 +188,7 @@ export default function Home() {
           <p>
             Built with <span className="text-red-400">❤</span> using React, TypeScript & Tailwind CSS
           </p>
-          <p className="text-sm mt-2">© 2025 Mohammad Yousefi. All rights reserved.</p>
+          <p className="text-sm mt-2">© 2026 Mohammad Yousefi. All rights reserved.</p>
         </div>
       </div>
     </div>
