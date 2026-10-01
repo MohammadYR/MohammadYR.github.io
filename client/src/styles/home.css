@@ -92,12 +92,17 @@
   padding-block: 88px 72px;
 }
 .hm-eyebrow {
-  font-family: var(--font-mono);
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 12.5px;
+  font-weight: 600;
   color: var(--accent-2);
-  letter-spacing: 0.04em;
-  margin: 0 0 18px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
 }
+.hm-eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--accent-2); }
 .hm-title {
   font-size: clamp(40px, 6vw, 64px);
   line-height: 1.02;
@@ -164,60 +169,67 @@
 }
 .hm-mail:hover { color: var(--accent-2); }
 
-/* ---------- terminal card ---------- */
+/* ---------- architecture diagram ---------- */
 .hm-hero-grid > *,
 .hm-projects > *,
 .hm-resumes > * { min-width: 0; }
 
-.hm-term {
-  background: #0a1322;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(100, 216, 198, 0.05);
-  font-family: var(--font-mono);
-  font-size: 13px;
-  line-height: 1.7;
+.ad {
+  margin: 0;
+  color: var(--on-ink-muted);
   direction: ltr;
 }
-.hm-term-bar {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 11px 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  color: var(--on-ink-muted);
-  font-size: 11.5px;
+.ad svg { display: block; width: 100%; height: auto; overflow: visible; }
+.ad-hint {
+  display: none;
+  margin: 0 0 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-2);
+  text-align: end;
 }
-.hm-term-bar i {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #2a3a52;
-}
-.hm-term-bar b { font-weight: 400; margin-inline-start: 8px; }
-.hm-term pre {
-  margin: 0;
-  padding: 18px 20px 20px;
-  white-space: pre;
-  overflow-x: auto;
-  color: #d5deea;
-  font: inherit;
-}
-.t-prompt { color: var(--accent-2); }
-.t-dim { color: #6f8198; }
-.t-ok { color: #7ee2a8; }
-.t-key { color: #8fc1ff; }
-.t-str { color: #f2c98b; }
-.t-bool { color: #f59fb8; }
-.t-cursor {
-  display: inline-block;
-  width: 8px;
-  height: 1.05em;
-  background: var(--accent-2);
-  vertical-align: text-bottom;
-  animation: hm-blink 1.1s steps(1) infinite;
-}
-@keyframes hm-blink { 50% { opacity: 0; } }
+.ad-box { fill: rgba(255, 255, 255, 0.025); stroke: rgba(199, 210, 222, 0.28); stroke-width: 1; }
+.ad-ext { fill: none; stroke-dasharray: 3 3; }
+.ad-web { fill: rgba(255, 255, 255, 0.04); }
+.ad-hi { stroke: rgba(100, 216, 198, 0.55); fill: rgba(100, 216, 198, 0.05); }
+.ad-boundary { fill: none; stroke: rgba(199, 210, 222, 0.16); stroke-dasharray: 6 5; }
+.ad-chip { fill: rgba(255, 255, 255, 0.05); stroke: rgba(199, 210, 222, 0.14); }
+.ad-chip-core { fill: none; stroke-dasharray: 2 3; }
+.ad text { font-family: var(--font-mono); }
+.ad-title { font-size: 12.5px; fill: #d5deea; }
+.ad-strong { font-family: var(--font-en) !important; font-weight: 600; font-size: 13.5px; fill: #fff; }
+.ad-label { font-size: 10.5px; fill: var(--on-ink-muted); letter-spacing: 0.03em; }
+.ad-caption { font-size: 10.5px; fill: rgba(199, 210, 222, 0.45); }
+.ad-chip-t { font-size: 10.5px; fill: var(--on-ink); }
+.ad-edge { stroke: rgba(199, 210, 222, 0.55); stroke-width: 1.2; }
+.ad-edge-t { font-size: 10.5px; fill: var(--on-ink-muted); }
+.ad-edge-hi { stroke: var(--accent-2); stroke-width: 1.5; }
+.ad-hi-fill { fill: var(--accent-2); }
+.ad-hi-text { fill: var(--accent-2); }
+.ad-flow { stroke-dasharray: 5 4; animation: ad-flow 1.4s linear infinite; }
+@keyframes ad-flow { to { stroke-dashoffset: -18; } }
 
+.ad figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--on-ink-muted);
+}
+.ad figcaption b { color: #fff; font-weight: 600; }
+.ad figcaption a {
+  flex: none;
+  color: var(--accent-2);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.ad figcaption a:hover { text-decoration: underline; }
 /* ---------- background strip ---------- */
 .hm-strip {
   position: relative;
@@ -394,8 +406,8 @@
   border-bottom: 3px solid var(--accent);
 }
 .hm-rcard-body { flex: 1; }
-.hm-rcard-title { font-size: 18px; font-weight: 700; margin: 0 0 4px; }
-.hm-rcard-desc { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.55; }
+.hm-rcard-title { display: block; font-size: 18px; font-weight: 700; margin: 0 0 4px; }
+.hm-rcard-desc { display: block; font-size: 14px; color: var(--muted); margin: 0; line-height: 1.55; }
 .hm-rcard-go {
   flex: none;
   color: var(--accent);
@@ -426,7 +438,15 @@
 }
 .hm-foot-icons { display: flex; gap: 16px; }
 .hm-foot-icons a,
-.hm-nav-icons a { color: var(--on-ink); transition: color 0.18s ease; }
+.hm-nav-icons a {
+  color: var(--on-ink);
+  transition: color 0.18s ease;
+  /* ~36px hit area around 18px icons without changing the visual spacing */
+  padding: 9px;
+  margin: -9px;
+}
+.hm-nav-icons,
+.hm-foot-icons { gap: 22px; }
 .hm-foot-icons a:hover,
 .hm-nav-icons a:hover { color: var(--accent-2); }
 
@@ -447,7 +467,11 @@
     border-inline-start: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.07);
   }
-  .hm-term { font-size: 11.5px; }
+  .ad figcaption { flex-direction: column; gap: 6px; }
+  /* keep diagram labels at a readable size; the drawing scrolls sideways instead */
+  .ad-canvas { overflow-x: auto; margin-inline: -18px; padding-inline: 18px; scrollbar-width: none; }
+  .ad-canvas svg { min-width: 460px; }
+  .ad-hint { display: block; }
   .hm-card { padding: 22px 20px 20px; }
   .hm-card-top { flex-direction: column; gap: 10px; }
   .hm-sec-title { font-size: 25px; }
@@ -456,7 +480,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .t-cursor { animation: none; }
+  .ad-flow { animation: none; }
   .hm-btn, .hm-card, .hm-card::before, .hm-rcard, .hm-rcard-go { transition: none; }
   .hm-btn:hover, .hm-card:hover { transform: none; }
 }

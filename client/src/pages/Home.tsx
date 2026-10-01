@@ -1,74 +1,31 @@
+import { useEffect } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, ArrowRight, Github, Linkedin, Mail } from "lucide-react";
-import "../styles/home.css";
+import ArchitectureDiagram from "@/components/ArchitectureDiagram";
+import { background, contact, homeProjects, stack } from "@/content/profile";
+import "@/styles/home.css";
 
-const EMAIL = "m.yousefi.r79@gmail.com";
-const GITHUB = "https://github.com/MohammadYR";
-const LINKEDIN = "https://www.linkedin.com/in/mohammadyousefi";
-
-const projects = [
-  {
-    kicker: "Bootcamp capstone · Solo",
-    title: "Multi-Vendor Marketplace",
-    desc: "Back-end for a marketplace where many sellers list products and buyers order from them.",
-    repo: "https://github.com/MohammadYR/Custom-Shop-Project",
-    repoLabel: "Custom-Shop-Project",
-    bullets: [
-      "Modular domain apps on a shared base with soft delete",
-      "JWT auth with SMS/email OTP and separate seller/buyer permissions",
-      "Cart → order → payment flow; SMS offloaded to Celery on Redis",
-      "Custom admin panel, Docker Compose setup and Swagger API docs",
-    ],
-    tags: ["Django", "DRF", "PostgreSQL", "Celery", "Redis", "Docker"],
-  },
-  {
-    kicker: "Team project · 3 people",
-    title: "Cafe Ordering System",
-    desc: "Ordering system for a cafe with a server-rendered web UI and a REST API over the same models.",
-    repo: "https://github.com/mohammadsafarpour/coffee-shop",
-    repoLabel: "coffee-shop",
-    bullets: [
-      "Django-template web interface plus a separate REST API",
-      "User profiles, wishlists and product reviews",
-      "Catalog with categories and multiple images",
-      "Orders with status tracking and total calculation",
-    ],
-    tags: ["Django", "DRF", "PostgreSQL", "JWT + OTP"],
-  },
-];
-
-function Terminal() {
+function ContactIcons({ size }: { size: number }) {
   return (
-    <div className="hm-term" aria-label="Profile summary as an API response">
-      <div className="hm-term-bar" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-        <b>~/mohammad — zsh</b>
-      </div>
-      <pre>
-        <span className="t-prompt">$</span> curl /api/v1/developers/mohammad-yousefi{"\n"}
-        <span className="t-ok">HTTP/1.1 200 OK</span>
-        {"\n"}
-        <span className="t-dim">content-type: application/json</span>
-        {"\n\n"}
-        {"{\n"}
-        {"  "}<span className="t-key">"role"</span>: <span className="t-str">"Back-End Developer"</span>,{"\n"}
-        {"  "}<span className="t-key">"stack"</span>: [<span className="t-str">"Python"</span>, <span className="t-str">"Django"</span>, <span className="t-str">"DRF"</span>],{"\n"}
-        {"  "}<span className="t-key">"database"</span>: <span className="t-str">"PostgreSQL"</span>,{"\n"}
-        {"  "}<span className="t-key">"async"</span>: [<span className="t-str">"Celery"</span>, <span className="t-str">"Redis"</span>],{"\n"}
-        {"  "}<span className="t-key">"ships_with"</span>: <span className="t-str">"Docker Compose"</span>,{"\n"}
-        {"  "}<span className="t-key">"background"</span>: [<span className="t-str">"Mech. Eng."</span>, <span className="t-str">"MBA"</span>],{"\n"}
-        {"  "}<span className="t-key">"location"</span>: <span className="t-str">"Tehran, Iran"</span>,{"\n"}
-        {"  "}<span className="t-key">"open_to_work"</span>: <span className="t-bool">true</span>{"\n"}
-        {"}\n"}
-        <span className="t-prompt">$</span> <span className="t-cursor" aria-hidden="true" />
-      </pre>
-    </div>
+    <>
+      <a href={contact.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <Github size={size} />
+      </a>
+      <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <Linkedin size={size} />
+      </a>
+      <a href={`mailto:${contact.email}`} aria-label="Email">
+        <Mail size={size} />
+      </a>
+    </>
   );
 }
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "Mohammad Yousefi — Back-End Developer";
+  }, []);
+
   return (
     <div className="hm mx-root" lang="en">
       <header className="hm-nav">
@@ -81,15 +38,7 @@ export default function Home() {
             <a href="#projects">Projects</a>
             <a href="#resume">Resume</a>
             <div className="hm-nav-icons">
-              <a href={GITHUB} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github size={18} />
-              </a>
-              <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin size={18} />
-              </a>
-              <a href={`mailto:${EMAIL}`} aria-label="Email">
-                <Mail size={18} />
-              </a>
+              <ContactIcons size={18} />
             </div>
           </nav>
         </div>
@@ -99,7 +48,7 @@ export default function Home() {
         <section className="hm-hero" id="top">
           <div className="hm-wrap hm-hero-grid">
             <div>
-              <p className="hm-eyebrow">// back-end developer · tehran</p>
+              <p className="hm-eyebrow">Back-End Developer · Tehran</p>
               <h1 className="hm-title">
                 Mohammad
                 <br />
@@ -110,7 +59,7 @@ export default function Home() {
                 containers that keep them running.
               </p>
               <div className="hm-chips">
-                {["Python", "Django", "DRF", "PostgreSQL", "Celery", "Redis", "Docker"].map((t) => (
+                {stack.map((t) => (
                   <span key={t} className="hm-chip">
                     {t}
                   </span>
@@ -123,34 +72,24 @@ export default function Home() {
                 <Link href="/resume-fa" className="hm-btn hm-btn-ghost" lang="fa">
                   رزومهٔ فارسی
                 </Link>
-                <a href={`mailto:${EMAIL}`} className="hm-mail">
-                  <Mail size={15} /> {EMAIL}
+                <a href={`mailto:${contact.email}`} className="hm-mail">
+                  <Mail size={15} /> {contact.email}
                 </a>
               </div>
             </div>
-            <Terminal />
+            <ArchitectureDiagram repo={homeProjects[0].repo} />
           </div>
 
           <div className="hm-strip">
             <div className="hm-wrap hm-strip-grid">
-              <div className="hm-strip-item">
-                <span className="hm-strip-k">Training</span>
-                <span className="hm-strip-v">Back-end bootcamp</span>
-                <br />
-                <span className="hm-strip-s">Maktab Sharif · 9 months, 2025</span>
-              </div>
-              <div className="hm-strip-item">
-                <span className="hm-strip-k">Studying</span>
-                <span className="hm-strip-v">MBA, Marketing</span>
-                <br />
-                <span className="hm-strip-s">University of Tehran</span>
-              </div>
-              <div className="hm-strip-item">
-                <span className="hm-strip-k">Degree</span>
-                <span className="hm-strip-v">B.Sc. Mechanical Engineering</span>
-                <br />
-                <span className="hm-strip-s">IAU, Science and Research Branch</span>
-              </div>
+              {background.map((b) => (
+                <div key={b.k} className="hm-strip-item">
+                  <span className="hm-strip-k">{b.k}</span>
+                  <span className="hm-strip-v">{b.v}</span>
+                  <br />
+                  <span className="hm-strip-s">{b.s}</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -163,8 +102,8 @@ export default function Home() {
               <span className="hm-sec-line" />
             </div>
             <div className="hm-projects">
-              {projects.map((p) => (
-                <article key={p.title} className="hm-card">
+              {homeProjects.map((p) => (
+                <article key={p.id} className="hm-card">
                   <div className="hm-card-top">
                     <div>
                       <span className="hm-card-kicker">{p.kicker}</span>
@@ -204,9 +143,7 @@ export default function Home() {
               <Link href="/resume-en" className="hm-rcard" dir="ltr">
                 <span className="hm-rcard-badge">EN</span>
                 <span className="hm-rcard-body">
-                  <span className="hm-rcard-title" style={{ display: "block" }}>
-                    English Resume
-                  </span>
+                  <span className="hm-rcard-title">English Resume</span>
                   <span className="hm-rcard-desc">Projects, experience, skills and education on one page.</span>
                 </span>
                 <ArrowRight className="hm-rcard-go" size={20} />
@@ -214,16 +151,14 @@ export default function Home() {
               <Link href="/resume-fa" className="hm-rcard" dir="rtl" lang="fa">
                 <span className="hm-rcard-badge">FA</span>
                 <span className="hm-rcard-body">
-                  <span className="hm-rcard-title" style={{ display: "block" }}>
-                    رزومهٔ فارسی
-                  </span>
+                  <span className="hm-rcard-title">رزومهٔ فارسی</span>
                   <span className="hm-rcard-desc">پروژه‌ها، سوابق، مهارت‌ها و تحصیلات در یک صفحه.</span>
                 </span>
                 <ArrowLeft className="hm-rcard-go" size={20} />
               </Link>
             </div>
             <p className="hm-note">
-              Need a PDF copy? Email me at <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+              Need a PDF copy? Email me at <a href={`mailto:${contact.email}`}>{contact.email}</a>
             </p>
           </div>
         </section>
@@ -233,15 +168,7 @@ export default function Home() {
         <div className="hm-wrap">
           <span>© 2026 Mohammad Yousefi · Tehran</span>
           <div className="hm-foot-icons">
-            <a href={GITHUB} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <Github size={17} />
-            </a>
-            <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <Linkedin size={17} />
-            </a>
-            <a href={`mailto:${EMAIL}`} aria-label="Email">
-              <Mail size={17} />
-            </a>
+            <ContactIcons size={17} />
           </div>
         </div>
       </footer>

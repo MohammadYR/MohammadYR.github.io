@@ -1,18 +1,32 @@
 <!doctype html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mohammad Yousefi — Back-End Developer</title>
-    <meta
-      name="description"
-      content="Mohammad Yousefi — back-end developer (Python, Django, DRF) based in Tehran. Projects and resume in English and Persian." />
+    <meta name="description" content="Back-end developer in Tehran building modular Django/DRF back-ends, REST APIs, PostgreSQL, Celery and Redis. Projects and resume in English and Persian." />
+    <meta name="author" content="Mohammad Yousefi" />
     <meta name="theme-color" content="#0d1829" />
+    <link rel="canonical" href="https://mohammadyr.github.io/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Link previews (LinkedIn, Telegram, WhatsApp, X) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mohammad Yousefi" />
+    <meta property="og:title" content="Mohammad Yousefi — Back-End Developer" />
+    <meta property="og:description" content="Back-end developer in Tehran building modular Django/DRF back-ends, REST APIs, PostgreSQL, Celery and Redis. Projects and resume in English and Persian." />
+    <meta property="og:url" content="https://mohammadyr.github.io/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://mohammadyr.github.io/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Mohammad Yousefi, Back-End Developer — Python, Django, DRF — with an architecture diagram of the Custom Shop project" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mohammad Yousefi — Back-End Developer" />
+    <meta name="twitter:description" content="Back-end developer in Tehran building modular Django/DRF back-ends, REST APIs, PostgreSQL, Celery and Redis. Projects and resume in English and Persian." />
+    <meta name="twitter:image" content="https://mohammadyr.github.io/og-image.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,41 +34,9 @@
       rel="stylesheet"
     />
   </head>
-
   <body>
+    <noscript>Mohammad Yousefi — Back-End Developer (Python, Django, DRF). Contact: m.yousefi.r79@gmail.com</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script type="module">
-      const {
-        VITE_APP_LOGO,
-        VITE_APP_TITLE,
-        VITE_ANALYTICS_ENDPOINT,
-        VITE_ANALYTICS_WEBSITE_ID,
-      } = import.meta.env;
-
-      if (VITE_APP_TITLE) {
-        document.title = VITE_APP_TITLE;
-      }
-
-      if (VITE_APP_LOGO) {
-        const iconLinks = [
-          document.querySelector('link[rel="icon"]'),
-          document.querySelector('link[rel="apple-touch-icon"]'),
-        ].filter(Boolean);
-        iconLinks.forEach((link) => {
-          link.href = VITE_APP_LOGO;
-        });
-      }
-
-      if (VITE_ANALYTICS_ENDPOINT && VITE_ANALYTICS_WEBSITE_ID) {
-        const script = document.createElement("script");
-        const baseUrl = VITE_ANALYTICS_ENDPOINT.replace(/\/$/, "");
-        script.src = `${baseUrl}/umami`;
-        script.defer = true;
-        script.dataset.websiteId = VITE_ANALYTICS_WEBSITE_ID;
-        document.body.append(script);
-      }
-    </script>
   </body>
-
 </html>

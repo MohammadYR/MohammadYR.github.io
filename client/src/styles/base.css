@@ -1,0 +1,53 @@
+/* Minimal reset shared by every page (replaces the Tailwind preflight). */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #0d1829;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3, p, ul, figure {
+  margin: 0;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+.app-fallback {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  gap: 12px;
+  justify-items: center;
+  background: #0d1829;
+  color: #c7d2de;
+  font-size: 14px;
+}
+.app-fallback button {
+  padding: 8px 16px;
+  border: 1px solid #64d8c6;
+  background: transparent;
+  color: #64d8c6;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

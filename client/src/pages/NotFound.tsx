@@ -1,13 +1,15 @@
 import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
-import "../styles/home.css";
+import "@/styles/home.css";
 
 export default function NotFound() {
   return (
     <div className="hm mx-root" lang="en">
       <section className="hm-hero" style={{ minHeight: "100vh", display: "grid", placeItems: "center" }}>
         <div className="hm-wrap" style={{ position: "relative", textAlign: "center" }}>
-          <p className="hm-eyebrow">HTTP/1.1 404 Not Found</p>
+          <p className="hm-eyebrow" style={{ justifyContent: "center" }}>
+            Error 404
+          </p>
           <h1 className="hm-title">
             Nothing here<span>.</span>
           </h1>
