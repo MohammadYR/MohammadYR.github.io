@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, ArrowRight, Github, Linkedin, Mail } from "lucide-react";
-import ArchitectureDiagram from "@/components/ArchitectureDiagram";
-import { background, contact, homeProjects, stack } from "@/content/profile";
+import { contact, glance, homeProjects } from "@/content/profile";
 import "@/styles/home.css";
 
 function ContactIcons({ size }: { size: number }) {
@@ -55,16 +54,10 @@ export default function Home() {
                 Yousefi<span>.</span>
               </h1>
               <p className="hm-lead">
-                I build the part users never see: modular Django back-ends, clean REST APIs, and the queues and
-                containers that keep them running.
+                Back-end developer working with Python, Django and Django REST Framework. I design modular
+                services, clean REST APIs and the background jobs behind them — with an engineering background and
+                an MBA in progress.
               </p>
-              <div className="hm-chips">
-                {stack.map((t) => (
-                  <span key={t} className="hm-chip">
-                    {t}
-                  </span>
-                ))}
-              </div>
               <div className="hm-ctas">
                 <Link href="/resume-en" className="hm-btn hm-btn-primary">
                   View Resume <ArrowRight size={16} />
@@ -72,25 +65,40 @@ export default function Home() {
                 <Link href="/resume-fa" className="hm-btn hm-btn-ghost" lang="fa">
                   رزومهٔ فارسی
                 </Link>
-                <a href={`mailto:${contact.email}`} className="hm-mail">
-                  <Mail size={15} /> {contact.email}
-                </a>
               </div>
             </div>
-            <ArchitectureDiagram repo={homeProjects[0].repo} />
-          </div>
 
-          <div className="hm-strip">
-            <div className="hm-wrap hm-strip-grid">
-              {background.map((b) => (
-                <div key={b.k} className="hm-strip-item">
-                  <span className="hm-strip-k">{b.k}</span>
-                  <span className="hm-strip-v">{b.v}</span>
-                  <br />
-                  <span className="hm-strip-s">{b.s}</span>
+            <aside className="gl" aria-label="Profile at a glance">
+              <div className="gl-head">
+                <span className="gl-title">At a glance</span>
+                <span className="gl-status">Open to opportunities</span>
+              </div>
+              <dl className="gl-rows">
+                {glance.map((row) => (
+                  <div key={row.label} className="gl-row">
+                    <dt>{row.label}</dt>
+                    <dd>
+                      {row.value}
+                      {row.note && <small>{row.note}</small>}
+                    </dd>
+                  </div>
+                ))}
+                <div className="gl-row">
+                  <dt>Contact</dt>
+                  <dd>
+                    <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                  </dd>
                 </div>
-              ))}
-            </div>
+              </dl>
+              <div className="gl-foot">
+                <a href={contact.github} target="_blank" rel="noopener noreferrer">
+                  <Github size={15} /> GitHub
+                </a>
+                <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
+                  <Linkedin size={15} /> LinkedIn
+                </a>
+              </div>
+            </aside>
           </div>
         </section>
 
