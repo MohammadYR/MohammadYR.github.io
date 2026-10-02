@@ -1,5 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#0d1829"/>
-  <rect x="6.5" y="6.5" width="51" height="51" fill="none" stroke="#64d8c6" stroke-width="3"/>
-  <text x="32" y="41" text-anchor="middle" font-family="Consolas, 'JetBrains Mono', monospace" font-size="24" font-weight="700" fill="#64d8c6">MY</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -130 500 500">
+  <!-- "MY" stack mark (see client/src/components/StackMark.tsx), centred on a square -->
+  <rect x="-30" y="-130" width="500" height="500" rx="60" fill="#f6f3ec"/>
+  <g fill="#0c4b33">
+    <rect x="4" y="44" width="32" height="192"/>
+    <rect x="84" y="44" width="32" height="112"/>
+    <rect x="164" y="44" width="32" height="192"/>
+    <rect x="244" y="4" width="32" height="72"/>
+    <rect x="404" y="4" width="32" height="72"/>
+    <rect x="244" y="84" width="192" height="32"/>
+    <rect x="324" y="124" width="32" height="112"/>
+  </g>
+  <rect x="4" y="4" width="192" height="32" fill="#f2c94c"/>
 </svg>

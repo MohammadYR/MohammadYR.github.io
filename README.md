@@ -10,8 +10,8 @@ client/
   index.html              page shell + Open Graph / Twitter meta
   public/                 static files copied as-is (favicon, og-image.png, robots, sitemap)
   src/
-    content/profile.ts    ALL text: resume content (en + fa), projects, "at a glance" card, contact links
-    components/           Resume (renders either language), ErrorBoundary
+    content/profile.ts    ALL text: resume content (en + fa), projects, contact links
+    components/           Resume (renders either language), StackMark (the "MY" logo), ErrorBoundary
     pages/                Home, NotFound
     styles/               tokens.css (palette + fonts), base.css, home.css, resume.css
 scripts/og/               og-image.html template + render.mjs → client/public/og-image.png
@@ -22,7 +22,7 @@ vite.config.ts            build config + per-route HTML (resume-en.html, resume-
 ## Editing content
 
 Change text in `client/src/content/profile.ts`; both resume pages and the home page read from it.
-If the headline or the "at a glance" card changes, update `scripts/og/og-image.html` and run `npm run og`.
+If the headline or the logo changes, update `scripts/og/og-image.html` and run `npm run og`.
 
 ## Commands
 

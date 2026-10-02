@@ -1,19 +1,23 @@
-/* Shared design tokens for every page of the portfolio. */
+/* Shared design tokens for every page of the portfolio.
+   Palette: warm paper, Django's deep green, a spark of Python yellow. */
 .mx-root {
-  --ink: #142238;
-  --ink-2: #0d1829;
-  --ink-soft: #2c3e56;
-  --accent: #0e7c6b;
-  --accent-2: #64d8c6;
-  --mist: #f3f6f8;
-  --rule: #dce3ea;
-  --muted: #5c6874;
+  --ink: #102019;
+  --ink-2: #0b1712;
+  --ink-soft: #2e3f36;
+  --accent: #0c4b33;
+  --accent-2: #44b78b;
+  --yellow: #f2c94c;
+  --cream: #f6f3ec;
+  --mist: #efebe1;
+  --rule: #ddd8cc;
+  --muted: #5f6b64;
   --paper: #ffffff;
-  --on-ink: #c7d2de;
-  --on-ink-muted: #8a9bb0;
+  --on-ink: #c9d6ce;
+  --on-ink-muted: #8fa398;
 
   --font-en: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-fa: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   color: var(--ink);

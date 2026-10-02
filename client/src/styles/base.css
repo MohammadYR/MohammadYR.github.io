@@ -12,7 +12,7 @@ html {
 
 body {
   margin: 0;
-  background: #0d1829;
+  background: #f6f3ec;
   font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
   line-height: 1.5;
 }
@@ -36,15 +36,15 @@ button {
   place-content: center;
   gap: 12px;
   justify-items: center;
-  background: #0d1829;
-  color: #c7d2de;
+  background: #f6f3ec;
+  color: #5f6b64;
   font-size: 14px;
 }
 .app-fallback button {
   padding: 8px 16px;
-  border: 1px solid #64d8c6;
+  border: 1px solid #0c4b33;
   background: transparent;
-  color: #64d8c6;
+  color: #0c4b33;
   cursor: pointer;
 }
 

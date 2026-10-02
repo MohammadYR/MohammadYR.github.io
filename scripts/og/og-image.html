@@ -1,22 +1,22 @@
 <!doctype html>
 <!--
   Source for client/public/og-image.png (1200×630), the link-preview image.
-  Mirrors the home hero (name + "At a glance" card from client/src/content/profile.ts).
+  Mirrors the home hero: name, tagline and the "MY" stack mark (client/src/components/StackMark.tsx).
   Re-render after editing:  npm run og
 -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400&display=swap"
       rel="stylesheet"
     />
     <style>
       * { box-sizing: border-box; margin: 0; }
       html, body { width: 1200px; height: 630px; overflow: hidden; }
       body {
-        background: #0d1829;
-        color: #fff;
+        background: #f6f3ec;
+        color: #102019;
         font-family: "Inter", "Segoe UI", sans-serif;
         position: relative;
       }
@@ -24,100 +24,67 @@
         content: "";
         position: absolute;
         inset: 0;
-        background-image: radial-gradient(rgba(100, 216, 198, 0.14) 1px, transparent 1px);
-        background-size: 22px 22px;
-        mask-image: linear-gradient(to right, #000 35%, transparent 90%);
+        background-image:
+          linear-gradient(rgba(12, 75, 51, 0.07) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(12, 75, 51, 0.07) 1px, transparent 1px);
+        background-size: 40px 40px;
+        mask-image: radial-gradient(ellipse at 78% 50%, #000 0%, transparent 65%);
       }
       .frame {
         position: absolute;
         inset: 0;
         display: grid;
-        grid-template-columns: 1fr 470px;
-        gap: 56px;
+        grid-template-columns: 1fr 460px;
+        gap: 48px;
         align-items: center;
-        padding: 0 64px;
-        border-bottom: 6px solid #0e7c6b;
+        padding: 0 72px;
+        border-bottom: 10px solid #0c4b33;
       }
-      .eyebrow {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        color: #64d8c6;
-        font-size: 18px;
-        font-weight: 600;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        margin-bottom: 26px;
-      }
-      .eyebrow::before { content: ""; width: 30px; height: 3px; background: #64d8c6; }
       h1 {
-        font-size: 88px;
-        line-height: 0.98;
+        font-size: 96px;
+        line-height: 0.96;
         font-weight: 800;
-        letter-spacing: -0.04em;
-        margin-bottom: 28px;
+        letter-spacing: -0.045em;
+        margin-bottom: 22px;
       }
-      h1 span { color: #64d8c6; }
-      .lead { font-size: 24px; line-height: 1.45; color: #c7d2de; margin-bottom: 34px; }
-      .url { font-size: 20px; color: #8a9bb0; }
-      .url b { color: #fff; font-weight: 600; }
-
-      .gl {
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-top: 4px solid #0e7c6b;
+      h1 span { color: #0c4b33; }
+      .tagline {
+        font-family: "Instrument Serif", Georgia, serif;
+        font-style: italic;
+        font-size: 40px;
+        line-height: 1.2;
+        color: #0c4b33;
+        margin-bottom: 40px;
       }
-      .gl-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 18px 26px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+      .url {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 20px;
+        color: #5f6b64;
       }
-      .gl-title { font-size: 14px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #c7d2de; }
-      .gl-status { display: flex; align-items: center; gap: 8px; font-size: 15px; color: #64d8c6; }
-      .gl-status::before {
-        content: "";
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: #64d8c6;
-        box-shadow: 0 0 0 3px rgba(100, 216, 198, 0.2);
-      }
-      .row {
-        display: grid;
-        grid-template-columns: 112px 1fr;
-        gap: 14px;
-        padding: 15px 26px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-      }
-      .row:last-child { border-bottom: 0; }
-      .row dt { font-size: 15px; color: #8a9bb0; padding-top: 2px; }
-      .row dd { margin: 0; font-size: 18px; line-height: 1.4; color: #fff; }
-      .row dd small { display: block; font-size: 15px; color: #8a9bb0; margin-top: 2px; }
+      .url b { color: #102019; font-weight: 400; }
+      svg { width: 100%; height: auto; display: block; }
     </style>
   </head>
   <body>
     <div class="frame">
       <div>
-        <p class="eyebrow">Back-End Developer</p>
         <h1>Mohammad<br />Yousefi<span>.</span></h1>
-        <p class="lead">Python · Django · Django REST Framework.<br />Modular services, clean REST APIs.</p>
+        <p class="tagline">Back-end developer —<br />Python &amp; Django</p>
         <p class="url"><b>mohammadyr.github.io</b> · Tehran</p>
       </div>
 
-      <div class="gl">
-        <div class="gl-head">
-          <span class="gl-title">At a glance</span>
-          <span class="gl-status">Open to opportunities</span>
-        </div>
-        <dl>
-          <div class="row"><dt>Focus</dt><dd>Back-end development<small>REST APIs · data modelling · async jobs</small></dd></div>
-          <div class="row"><dt>Stack</dt><dd>Python · Django · DRF<small>PostgreSQL · Celery · Redis · Docker</small></dd></div>
-          <div class="row"><dt>Training</dt><dd>Back-end bootcamp<small>Maktab Sharif · 2025</small></dd></div>
-          <div class="row"><dt>Education</dt><dd>MBA, Marketing<small>University of Tehran</small></dd></div>
-        </dl>
-      </div>
+      <svg viewBox="0 0 440 240" aria-hidden="true">
+        <g fill="#0c4b33">
+          <rect x="2.5" y="42.5" width="35" height="195" />
+          <rect x="82.5" y="42.5" width="35" height="115" />
+          <rect x="162.5" y="42.5" width="35" height="195" />
+          <rect x="242.5" y="2.5" width="35" height="75" />
+          <rect x="402.5" y="2.5" width="35" height="75" />
+          <rect x="242.5" y="82.5" width="195" height="35" />
+          <rect x="322.5" y="122.5" width="35" height="115" />
+        </g>
+        <rect x="2.5" y="2.5" width="195" height="35" fill="#f2c94c" />
+      </svg>
     </div>
   </body>
 </html>

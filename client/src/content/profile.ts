@@ -95,16 +95,6 @@ export const homeProjects = [
   },
 ] as const;
 
-// "At a glance" card in the home hero (also mirrored in scripts/og/og-image.html).
-export const glance: { label: string; value: string; note?: string }[] = [
-  { label: "Focus", value: "Back-end development", note: "REST APIs · data modelling · async jobs" },
-  { label: "Stack", value: "Python · Django · DRF", note: "PostgreSQL · Celery · Redis · Docker" },
-  { label: "Training", value: "Back-end bootcamp, Maktab Sharif", note: "9 months · 2025" },
-  { label: "Education", value: "MBA, Marketing — University of Tehran", note: "B.Sc. Mechanical Engineering" },
-  { label: "Languages", value: "Persian · English" },
-  { label: "Based in", value: "Tehran, Iran" },
-];
-
 const skillValues = {
   frameworks: "Python · Django · Django REST Framework · REST API",
   tools: "Git & GitHub · Docker · Docker Compose · Postman · Celery · Redis · Linux",
